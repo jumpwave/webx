@@ -1,0 +1,351 @@
+@CHARSET "UTF-8";
+/* 主浏览界面样式 */
+body{
+	overflow-y: auto;	
+}
+
+a{
+	text-decoration:none;
+}
+input[type="checkbox"]{
+	cursor:hand;
+}
+
+.dataAuditContainer {
+	width: 100%;
+}
+
+.dataAuditContainer>table {
+	width: 100%;
+	border: 0px;
+}
+
+.dataAuditContainer>table tr {
+	width: 100%;
+}
+
+.dataAuditContainer>table td {
+	vertical-align: top;
+}
+
+.navigatorTd {
+	width: 240px;
+	border-right: 1px solid #D7D9DB;
+}
+
+.navigatorTd>.navigatorTitle {
+	height: 30px;
+	padding-bottom: 10px;
+	background-color: #F1F2F3;
+	border-bottom: 1px solid #D7D9DB;
+	position: relative;
+}
+
+.navigatorTd>.navigatorTitle>span {
+	height: 30px;
+	line-height: 40px;
+	margin-left: 10px;
+	color: #333333;
+}
+
+.navigatorTd>.navigatorToolBar {
+	height: 30px;
+	border-bottom: 1px solid #D7D9DB;
+}
+
+.navigatorTd>.navigatorTitle>.addBtn {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	cursor:hand;
+	background: url("../image/toolbar_ico_addchart.png") no-repeat;
+}
+
+.navigatorTd>.nav {
+	vertical-align: top;
+	bottom: 0px;
+}
+
+.navigatorTd>.nav>.tips {
+	color: #B8B8B8;
+	text-align:center;
+	margin-top: 20px;
+}
+
+.navigatorTd>.nav>.menu {
+	margin-top: 1px;
+	height: 30px;
+	position: relative;
+}
+
+.navigatorTd>.nav>.menu:HOVER {
+	background-color: #D8EAFF;
+}
+
+.navigatorTd>.nav>.menu.active {
+	background-color: #FFE6B0;
+}
+
+.navigatorTd>.nav>.menu>div.title {
+	width: 130px;
+	height: 30px;
+	float: left;
+	text-align: left;
+	line-height: 30px;
+	padding-left: 30px;
+}
+
+.navigatorTd>.nav>.menu.active>div.delbtn {
+	width: 16px;
+	height: 16px;
+	top: 10px;
+	right: 10px;
+	position: absolute;
+	cursor:hand;
+	background: url("../image/SC_item_del.png") no-repeat;
+}
+
+.navigatorTd>.nav>.menu>div.delbtn:HOVER {
+	background: url("../image/SC_item_del_O.png") no-repeat;
+}
+
+.navigatorTd>.nav>.menu.active>div.statebtn {
+	width: 16px;
+	height: 16px;
+	top: 10px;
+	right: 30px;
+	position: absolute;
+	cursor:hand;
+	background: url("../image/SC_item_stop.png") no-repeat;
+}
+
+.navigatorTd>.nav>.menu>div.statebtn:HOVER {
+	background: url("../image/SC_item_stop_O.png") no-repeat;
+}
+
+
+.navigatorTd>.nav>.menu.active>div.statebtn.paused {
+	width: 16px;
+	height: 16px;
+	top: 10px;
+	right: 30px;
+	position: absolute;
+	cursor:hand;
+	background: url("../image/SC_item_implement.png") no-repeat;
+}
+
+.navigatorTd>.nav>.menu>div.statebtn.paused:HOVER {
+	background: url("../image/SC_item_implement_O.png") no-repeat;
+}
+
+
+/* 右侧样式 */
+.containerTd{
+	background-color: #F7F8F9;
+}
+
+.containerTd>.container {
+	text-algin: center;
+}
+
+.containerTd>.container>.tips {
+	height: 256px;
+	width: 326px;
+	color: #B8B8B8;
+	font-size: 18px;
+	position: absolute;
+	top: 30%;
+	left: 45%;
+	background: url("../image/ico_blankpage.png") no-repeat center top;
+}
+
+.dataAuditPanel {
+	margin: 20px 20px 20px 20px;
+	background-color: white;
+	padding-left: 30px;
+}
+
+.dataAuditPanel .dataAuditTitle {
+	padding-top: 30px;
+	line-height: 16px;
+}
+.dataAuditPanel .dataAuditTitle>.title {
+	float:left;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.dataAuditPanel .dataAuditTitle>.editBtn {
+	float:left;
+	padding-left: 20px;
+	margin-left: 20px;
+	height: 16px;
+	color: #4C77BA;
+	cursor:hand;
+	background: url("../image/toolbar_ico_edit.png") no-repeat;
+}
+
+.dataAuditPanel .baseinfoEdit {
+	margin-top: 30px;
+}
+
+.dataAuditPanel .baseinfoEdit>INPUT {
+	line-height: 
+}
+
+.controls {
+	line-height: 26px;
+}
+
+/*overwirte puck.css*/
+.control-group .control-label{
+	width: 120px;
+}
+
+#filterDivTemplate .queryParamDiv{
+	width: 612px;
+	height: 40px;
+	background-color: #DDDDDD;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+
+.dataAuditDetailPanel {
+	margin: 20px 20px 20px 20px;
+	background-color: white;
+}
+.dataAuditDetailPanel .tab-content {
+	background-color: white;
+}
+/* 基本信息详情与编辑界面样式 */
+.lineTitle {
+	height: 31px;
+	line-height: 31px;
+	margin: 0 20px 10px 20px;
+	padding-top: 20px;
+	position: relative;
+	zoom: 1;
+}
+.lineTitle .line {
+	position: absolute;
+	left: 0;
+	top: 35px;
+	width: 100%;
+	height: 1px;
+	overflow: hidden;
+	background: #d3d3d3;
+}
+.lineTitle .message {
+	position: relative;
+	left: 30px;
+	top: 0;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 0 10px;
+	background-color: #FFF;
+	display: inline;
+}
+
+.lineTitle .btn {
+	position: relative;
+	left: 20px;
+	top: -1px;
+	padding: 5px 10px 5px 30px;
+	background-color: #FFF;
+	background: #FFF 10px no-repeat;
+	cursor: pointer;
+	color: #217FE2;
+	display: inline;
+}
+.lineTitle .btn:HOVER,
+.lineTitle .btn.hover {
+	color: #FF9900;
+}
+.lineTitle .editBtn {
+	background-image: url("../image/edit.png");
+}
+.lineTitle .publishBtn {
+	background-image: url("../image/publish.png");
+}
+.queryParamDiv .select-wrap{
+	position:relative;
+	top:10px;
+	margin-right:20px;
+}
+
+.resultToolbar{
+	position:relative;
+	top:10px;
+	left:30px;	
+	cursor:hand;
+}
+
+.resultEntry{
+	margin-top: 20px;
+	margin-left: 30px;
+	margin-right: 30px;
+	padding: 15px;
+	background-color: #F9F9F9;
+	line-height: 20px;
+	
+}
+
+.resultEntry .resultIcon{
+	width: 100px;
+	height: 100%;
+	float: left;
+}
+
+.resultEntry .resultCnt{
+	height: 100%;
+	float: left;
+}
+
+.resultEntry .timeSpan{
+	display: block;
+	float: left;
+	margin-right: 50px;
+}
+
+.resultEntry .sqlScriptA{
+	display: block;
+	float: right;
+	margin-right: 10px;	
+	width: 16px;
+	height: 16px;
+	background-image: url("../image/toolbar_ico_script.png");
+}
+
+.resultEntry .exceptionLabel{
+	display: block;
+}
+
+.resultEntry .exceptionDiv{
+	display: block;
+	float: left;	
+}
+
+.resultEntry .sqlScript{
+	display:none;
+}
+
+.resultEntry .sqlScript.show{
+	display:block;
+}
+
+.resultEntry .clear{
+	clear: both;
+}
+
+.exceptionDiv th, .exceptionDiv td{
+	width: 120px;
+}
+
+.exceptionDiv.datagrid tr.odd{
+	background-color: #fff;
+}
+.ztree li span.button.bluefolder_ico_docu,.ztree li span.button.bluefolder_ico_open,.ztree li span.button.bluefolder_ico_close{margin-right:2px; background: url(../image/folder16x16.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+.ztree li span.button.role_ico_docu,.ztree li span.button.role_ico_open,.ztree li span.button.role_ico_close{margin-right:2px; background: url(../image/3.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}

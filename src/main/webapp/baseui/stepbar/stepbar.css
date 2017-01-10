@@ -1,0 +1,41 @@
+.hikui_stepbar {}
+
+.hikui_stepbar UL {
+	height: 28px;
+	line-height: 28px;
+	vertical-align: 28px;
+	margin: 0 auto;
+}
+
+.hikui_stepbar UL LI {
+	float: left;
+	display: inline;
+	width: 125px;
+	height: 28px;
+	line-height: 28px;
+	vertical-align: 28px;
+	text-align: center;
+	margin-left: -10px;
+	color: #aaa;
+	background: url("./images/guide_step2.png") left no-repeat;
+}
+
+.hikui_stepbar UL LI.selected {
+	color: #fff;
+	background-image: url("./images/guide_step2_S.png");
+}
+
+.hikui_stepbar UL LI.first {
+	margin-left: 0px;
+	background-image: url("./images/guide_step1.png");
+}
+.hikui_stepbar UL LI.first.selected {
+	background-image: url("./images/guide_step1_S.png");
+}
+
+.hikui_stepbar UL LI.last {
+	background-image: url("./images/guide_step3.png");
+}
+.hikui_stepbar UL LI.last.selected {
+	background-image: url("./images/guide_step3_S.png");
+}

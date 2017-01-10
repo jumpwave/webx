@@ -1,0 +1,32 @@
+
+.icon_log { background: url('../images/icon_log_ny.png'); background-repeat: no-repeat; text-align: center; float: left; width: 64px; height: 64px;  position: relative;}
+.icon_log:hover { background-position: 0px -72px;}
+.icon_log:active { background-position: 0px -144px;}
+
+.icon_log span { /* position: absolute; */ top: 74px; font-size: 13px;}
+a.dash-organization:link, a.dash-organization:visited ,a.dash-organization:active {background-position: -512px -192px; }
+a.dash-user:link, a.dash-user:visited ,a.dash-user:active {background-position: -384px -192px; }
+a.dash-resource:link, a.dash-resource:visited, a.dash-resource:active {background-position: -448px -192px; }
+a.dash-alarm:link, a.dash-alarm:visited, a.dash-alarm:active {background-position: -384px 0px;}
+a.dash-video:link, a.dash-video:visited, a.dash-video:active {background-position: -512px -128px;}
+a.dash-service:link, a.dash-service:visited, a.dash-service:active {background-position: -320px -128px;}
+a.dash-setting:link, a.dash-setting:visited, a.dash-setting:active{background-position: -384px -64px;}
+a.dash-monitor:link, a.dash-monitor:visited, a.dash-monitor:active{background-position: -576px -128px;}
+a.dash-playback:link, a.dash-playback:visited,a.dash-playback:active{background-position: -384px -128px;}
+a.dash-alarm-center:link, a.dash-alarm-center:visited, a.dash-alarm-center:active{background-position: -320px 0px;}
+a.dash-download:link, a.dash-download:visited, a.dash-download:active{background-position: -576px -64px;}
+a.dash-log:link, a.dash-log:visited, a.dash-log:active{background-position: -320px -256px;}
+a.dash-cascade:link,a.dash-cascade:visited, a.dash-cascade:active {background-position: -320px -64px; }
+a.dash_intelligent:link, a.dash-intelligent:visited, a.dash_intelligent:active{background-position: -576px -192px;}
+a.dash-home:link, a.dash-home:visited, a.dash-home:active{background-position: -512px -64px;}
+a.dash-monitor-wg:link, a.dash-monitor-wg:visited, a.dash-monitor-wg:active{background-position: -448px -128px;}
+a.dash-stat-analysis:link, a.dash-stat-analysis:visited, a.dash-stat-analysis:active{background-position: -512px -256px;}
+a.dash-report-wg:link, a.dash-report-wg:visited, a.dash-report-wg:active{background-position: -448px -256px;}
+a.dash-log:link, a.dash-log:visited, a.dash-log:active{background-position: -320px -256px;}
+a.dash-config:link, a.dash-config:visited, a.dash-config:active{background-position: -320px -192px;}
+a.dash-gis-setting:link, a.dash-gis-setting:visited, a.dash-gis-setting:active{ background-position: -576px 0px;}
+a.dash-gis:link, a.dash-gis:visited, a.dash-gis:active{ background-position: -512px 0px;}
+a.dash-vtms:link, a.dash-vtms:visited, a.dash-vtms:active{ background-position: -448px -64px;}
+a.dash-nms-alarm:link, a.dash-nms-alarm:visited, a.dash-nms-alarm:active{ background-position: -448px 0px;}
+a.dash-nms-log:link, a.dash-nms-log:visited, a.dash-nms-log:active{background-position: -384px -256px;}
+a.dash-car:link, a.dash-car:visited, a.dash-car:active{background-position: -576px -256px;}

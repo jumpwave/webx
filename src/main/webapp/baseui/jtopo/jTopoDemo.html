@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"/>
+	<meta name="Viewport" content="width=device-width; user-scaleable=no; initial-scale=1.0"/>
+	<title>jTopo Demo</title>
+	<meta name="description" content="jTopo免费的基于HTML5 Canvas的网络拓扑、关系图形库">
+	<meta name="keyword" content="jTopo 网络 拓扑 图形库 HTML5 Canvas 免费 关系图形库 javascript topology">	
+	<script type="text/javascript" src="../../common/js/jquery.js"></script>
+	
+	<script type="text/javascript" src="./jtopo-0.4.8.js"></script>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){										
+		var canvas = document.getElementById('canvas');
+		var stage = new JTopo.Stage(canvas);
+
+
+		var scene = new JTopo.Scene(stage);	
+
+		
+		// 节点
+		function newNode(x, y, w, h, text){
+			var node = new JTopo.Node(text);
+			node.setLocation(x, y);
+			node.setSize(w, h);
+			scene.add(node);
+			node.dragable = 0;
+			return node;
+		}
+		
+		// 简单连线
+		function newLink(nodeA, nodeZ, text, dashedPattern){
+			var link = new JTopo.Link(nodeA, nodeZ, text);		
+			link.lineWidth = 3; // 线宽
+			link.dashedPattern = dashedPattern; // 虚线
+			link.bundleOffset = 60; // 折线拐角处的长度
+			link.bundleGap = 20; // 线条之间的间隔
+			link.textOffsetY = 3; // 文本偏移量（向下3个像素）
+			link.strokeColor = '#FFF';
+			scene.add(link);
+			return link;
+		}
+		
+		// 折线
+		function newFoldLink(nodeA, nodeZ, text, direction, dashedPattern){
+			var link = new JTopo.HeaderFoldLink(nodeA, nodeZ, text);
+			link.direction = direction || 'horizontal';
+			//link.arrowsRadius = 5; //箭头大小
+			link.lineWidth = .5; // 线宽
+			link.bundleOffset = 60; // 折线拐角处的长度
+			link.bundleGap = 20; // 线条之间的间隔
+			link.textOffsetY = 3; // 文本偏移量（向下3个像素）
+			link.strokeColor ='#FFF'; // 线条颜色随机
+			//link.dashedPattern = dashedPattern;
+			scene.add(link);
+			return link;
+		}
+		var yMargin = 20;
+		var nodeH = 40;
+		var nodeW = 100
+		
+		var from = newNode(100, 100, 100, 50);
+		var to = newNode(120, from.y+from.height+yMargin, nodeW, nodeH);
+		var to1 = newNode(120, to.y+nodeH+yMargin, nodeW, nodeH);
+		var to2 = newNode(120, to1.y+nodeH+yMargin, nodeW, nodeH);
+		var link = newFoldLink(from, to, '', 'vertical');
+		var link1 = newFoldLink(from, to1, '', 'vertical');
+		var link2 = newFoldLink(from, to2, '', 'vertical');
+		
+		var to11 = newNode(140, to1.y+to1.height+yMargin, nodeW, nodeH);
+		var to12= newNode(140, to11.y+to11.height+yMargin, nodeW, nodeH);
+		
+		to2.setLocation(to2.x,to12.y+to12.height + yMargin);
+		var link11 = newFoldLink(to1, to11, '', 'vertical');
+		var link12 = newFoldLink(to1, to12, '', 'vertical');
+		
+/*		// 弹性效果（引力、摩擦系数)
+		var effect = JTopo.Effect.spring({
+			grivity: 10 // 引力 (可以为负值)
+		})
+		
+		// 效果作用对象(node节点以targetNode为目标，产生弹性效果)
+		effect.addNode(to, from);
+		effect.addNode(to1, from);
+		effect.addNode(to2, from);
+		effect.addNode(to11, to1);
+		effect.addNode(to12, to1);
+		// 播放
+		effect.play();
+*/		
+	});			
+	
+	function layout(to12, to1){
+		
+	}
+		
+	
+
+
+		
+		
+	</script>
+  </head>
+
+  <body>
+  <div id="wrapper" style="width:900px;height:600px;background:#CCC;position:relative;">
+	<canvas width="850" height="550" id="canvas"></canvas>	
+	
+  </div>
+  
+  
+</body>
+
+</html>

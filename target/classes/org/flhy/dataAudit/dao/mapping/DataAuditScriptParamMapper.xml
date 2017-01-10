@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.flhy.dataAudit.dao.DataAuditScriptParamMapper">
+
+	<resultMap type="DataAuditScriptParam" id="DataAuditScriptParamResultMap">
+		<id property="param_id" column="param_id"/>
+		<result property="param_name" column="param_name"/>
+		<result property="param_type" column="param_type"/>
+		<result property="param_value" column="param_value"/>
+		<result property="task_id" column="task_id"/>
+	</resultMap>
+
+	<select id="getDataAuditScriptParam" resultType="DataAuditScriptParam" resultMap="DataAuditScriptParamResultMap">
+		<![CDATA[
+			select * from data_audit_script_param t where t.param_id = #{param_id}
+		]]> 
+	</select>
+
+	<select id="findDataAuditScriptParam" resultType="DataAuditScriptParam" resultMap="DataAuditScriptParamResultMap">
+			select * from data_audit_script_param t where 1=1
+			<if test="task_id !=null and task_id != '' ">  
+				and t.task_id = #{task_id} 
+			</if>			
+	</select>		
+	<select id="findDataAuditScriptParamByTask" parameterType="String" resultMap="DataAuditScriptParamResultMap">
+			select * from data_audit_script_param t where t.task_id = #{task_id}	
+	</select>		
+	
+	
+	<insert id="insertDataAuditScriptParam" parameterType="DataAuditScriptParam">
+		insert into data_audit_script_param values(
+			#{param_id, jdbcType=VARCHAR},
+			#{param_name, jdbcType=VARCHAR},
+			#{param_type, jdbcType=VARCHAR},
+			#{param_value, jdbcType=VARCHAR},
+			#{task_id, jdbcType=VARCHAR}		
+		)
+	</insert>
+	
+	<update  id="updateDataAuditScriptParam" parameterType="DataAuditScriptParam">
+		update data_audit_script_param set	
+			param_name = #{param_name, jdbcType=VARCHAR},
+			param_type = #{param_type, jdbcType=VARCHAR},
+			param_value = #{param_value, jdbcType=VARCHAR},
+			task_id = #{task_id, jdbcType=VARCHAR},
+			where param_id = #{param_id}	 
+	</update>
+	
+	<delete id="delete">
+		delete from data_audit_script_param t  
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			    and t.task_id in 
+			    <foreach collection="list" item="taskIds" index="index" open="(" separator="," close=")">#{taskIds}</foreach>	
+		</trim>
+	</delete>
+	
+</mapper>

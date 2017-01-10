@@ -1,0 +1,334 @@
+/* 
+ * My97 DatePicker 4.8 beta
+ * 皮肤名称:blue
+ * 作者：陈国辉
+ */
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+/* 日期选择容器 DIV */
+.WdateDiv{
+	width:196px;
+	_width: 202px;
+	background-color:#FFFFFF;
+	border:#BCBCBC 1px solid;
+	padding: 2px;
+	font-family: tahoma, arial, "宋体";
+}
+/* 双月日历的宽度 */
+.WdateDiv2{
+	width:360px;
+}
+.WdateDiv *{font-size:12px;}
+
+/****************************
+ * 导航图标 全部是A标签
+ ***************************/
+.WdateDiv .NavImg a{
+	display:block;
+	cursor:pointer;
+	height:16px;
+	width:16px;
+	margin-top: 4px;
+	background-image: url("img.png");
+}
+
+.WdateDiv .NavImg a:hover{
+	background-image: url("img_hover.png");
+	background-color: #EBEBEB;
+}
+
+.WdateDiv .NavImgll a{
+	float:left;
+	background-position: 0 0;
+	background-repeat:no-repeat;
+}
+.WdateDiv .NavImgl a{
+	float:left;
+	background-position: -16px 0;
+	background-repeat:no-repeat;
+}
+.WdateDiv .NavImgr a{
+	float:right;
+	background-position: -32px 0;
+	background-repeat:no-repeat;
+}
+.WdateDiv .NavImgrr a{
+	float:right;
+	background-position: -48px 0;
+	background-repeat:no-repeat;
+}
+
+/****************************
+ * 年份月份相关
+ ***************************/
+/* 年份月份栏 DIV */
+.WdateDiv #dpTitle{
+	height:24px;
+	line-height:24px;
+	vertical-align:24px;
+	margin-bottom:2px;
+	padding:1px;
+}
+/* 年份月份输入框 INPUT */
+.WdateDiv .yminput{
+	color:#434343;
+	text-align:center;
+	height:20px;
+	line-height:20px;
+	vertical-align:middle;
+	border:0px;
+	width:50px;
+	cursor:pointer;	
+	margin-top: 2px;
+	margin-left: 8px;	
+}
+/* 年份月份输入框获得焦点时的样式 INPUT */
+.WdateDiv .yminputfocus{
+	margin-top:2px;
+	text-align:center;
+	font-weight:bold;
+	height:20px;
+	color:blue;
+	border:#BCBCBC 1px solid;
+	width:50px;
+}
+/* 菜单选择框 DIV */
+.WdateDiv .menuSel{
+	z-index:1;
+	position:absolute;
+	background-color:#FFFFFF;	
+	border:#BCBCBC 1px solid;
+	display:none;
+}
+/* 菜单的样式 TD */
+.WdateDiv .menu{
+	cursor:pointer;
+	background-color:#fff;
+}
+/* 菜单的mouseover样式 TD */
+.WdateDiv .menuOn{
+	cursor:pointer;
+	color:#26A0DA;
+	background-color:#EBEBEB;
+}
+/* 菜单无效时的样式 TD */
+.WdateDiv .invalidMenu{
+	color:#aaa;
+}
+/* 年选择框的偏移 DIV */
+.WdateDiv .YMenu{
+	margin-top:20px;
+	
+}
+/* 月选择框的偏移 DIV */
+.WdateDiv .MMenu{
+	margin-top:20px;
+	*width:62px;
+}
+/* 时选择框的位置 DIV */
+.WdateDiv .hhMenu{
+	margin-top:-72px; 
+	margin-left:42px;
+}
+/* 分选择框的位置 DIV */
+.WdateDiv .mmMenu{
+	margin-top:-36px; 
+	margin-left:42px;
+}
+/* 秒选择框的位置 DIV */
+.WdateDiv .ssMenu{
+	margin-top:-18px; 
+	margin-left:42px;
+}
+
+/****************************
+ * 周相关
+ ***************************/
+ .WdateDiv .Wweek {
+ 	text-align:center;
+ 	background-color: #EBEBEB;
+ 	border-left:#DCDCDC 1px solid;
+	border-right:#DCDCDC 1px solid;
+ }
+/****************************
+ * 星期,日期相关
+ ***************************/
+/* 星期栏 TR */
+.WdateDiv .MTitle td{
+	border-bottom: #F6F6F6 1px solid;
+}
+.WdateDiv .WdayTable2{
+	border-collapse:collapse;
+	border:#c5d9e8 1px solid;
+	color: #434343;
+}
+.WdateDiv .WdayTable2 table{
+	border:0;
+}
+/* 日期栏表格 TABLE */
+.WdateDiv .WdayTable{
+	line-height:20px;
+	margin-bottom: 10px;
+	border-bottom: #EBEBEB 1px solid;
+	background-color: #FFF;
+}
+.WdateDiv .WdayTable TD{
+	text-align:center;
+}
+/* 日期格的样式 TD */
+.WdateDiv .Wday{
+	cursor:pointer;
+}
+/* 日期格的mouseover样式 TD */
+.WdateDiv .WdayOn{
+	cursor:pointer;
+	color:#26A0DA;
+	background-color:#EBEBEB;
+}
+/* 周末日期格的样式 TD */
+.WdateDiv .Wwday{
+	cursor:pointer;
+}
+/* 周末日期格的mouseover样式 TD */
+.WdateDiv .WwdayOn{
+	cursor:pointer;
+	color:#26A0DA;
+	background-color:#EBEBEB;
+}
+.WdateDiv .Wtoday{
+	cursor:pointer;
+	background-color:#E5F3FB;
+	color:#26A0DA;
+}
+.WdateDiv .Wselday{
+	background-color:#50A5FF;
+	color: #FFF;
+}
+.WdateDiv .WspecialDay{
+	background-color:#66F4DF;
+}
+/* 其他月份的日期 */
+.WdateDiv .WotherDay{ 
+	cursor:pointer;
+	color:#999;	
+}
+/* 其他月份的日期mouseover样式 */
+.WdateDiv .WotherDayOn{ 
+	cursor:pointer;
+	color:#26A0DA;
+	background-color:#EBEBEB;
+}
+/* 无效日期的样式,即在日期范围以外日期格的样式,不能选择的日期 */
+.WdateDiv .WinvalidDay{
+	color:#D0D0D0;
+}
+
+/****************************
+ * 时间相关
+ ***************************/
+/* 时间栏 DIV */
+.WdateDiv #dpTime{
+	text-align: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-left: 12px;
+}
+.WdateDiv #dpTime td {
+	vertical-align: middle;
+}
+/* 时间文字 SPAN */
+.WdateDiv #dpTime #dpTimeStr{
+}
+/* 时间输入框 INPUT */
+.WdateDiv #dpTime input{
+	width:34px;
+	height:20px;
+	line-height:16px;
+	vertical-align: middle;
+	text-align:center;
+	border:#CCC 1px solid;	
+}
+/* 时间 时 INPUT */
+.WdateDiv #dpTime .tB{
+	border-right:0px;
+}
+/* 时间 分和间隔符 ':' INPUT */
+.WdateDiv #dpTime .tE{
+	border-left:0;
+	border-right:0;
+}
+/* 时间 秒 INPUT */
+.WdateDiv #dpTime .tm{
+	width:7px;
+	border-left:0;
+	border-right:0;
+}
+.WdateDiv #dpTime button{
+	height:10px;
+	width:13px;
+	border:0px;
+	cursor:pointer;
+	background: none;
+	background-image: url("img.png");
+}
+.WdateDiv #dpTime button:HOVER{
+	background-image: url("img_hover.png");
+}
+/* 时间右边的向上按钮 BUTTON */
+.WdateDiv #dpTime #dpTimeUp{
+	background-position: -32px -16px;
+	background-repeat: no-repeat;
+	border-left-width: 0px;
+	border-bottom-width: 0px;
+}
+/* 时间右边的向下按钮 BUTTON */
+.WdateDiv #dpTime #dpTimeDown{
+	background-position: -48px -16px;
+	background-repeat: no-repeat;
+	border-left-width: 0px;
+	border-top-width: 0px;
+}
+/****************************
+ * 其他
+ ***************************/
+ .WdateDiv #dpQS {
+ 	float:left;
+	margin-right:3px;
+	margin-top:3px;
+	background:url(img.png) no-repeat 1px -14px;
+	width:20px;
+	height:20px;
+	cursor:pointer;
+ }
+.WdateDiv #dpControl {
+	text-align: center;
+	margin-bottom: 5px;
+}
+/** 按钮样式定义：BUTTON */
+.WdateDiv .dpButton {
+	width: 80px;
+	height: 28px;
+	line-height: 18px;
+	margin: 0 8px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 12px;
+	color: #FFF;
+	border: 1px solid #1D7BDF;
+	border-bottom: 2px solid #125E8B;
+	background-color: #1D7BDF;
+	cursor: pointer;
+}
+.WdateDiv #dpClearInput.dpButton {
+	border-color: #D94C3A;
+	border-bottom-color: #701C18;
+	background-color: #D94C3A;
+}
+.WdateDiv .dpButton:HOVER {
+	opacity: .75;
+	filter: Alpha(Opacity=75);
+}

@@ -1,0 +1,24 @@
+#footer {
+	font-family: Microsoft YaHei, 微软雅黑, 宋体;
+	color: #999;
+	text-align: center;
+	height: 27px;
+	line-height: 27px;
+	vertical-align: middle;
+	border-top: 1px solid #CBCBCB;
+	background-color: #F8F8F8;
+	_padding-top: 6px;
+	_height: 21px;
+}
+#footer .symbol {
+	width: 82px;
+	height: 12px;
+	display: inline-block;
+	background: url("./images/ico_copyright.png") left center no-repeat;
+	vertical-align: -1px;
+	_vertical-align: 0px;
+}
+#footer .copyright {
+	font-family: Microsoft YaHei, 微软雅黑, 宋体;
+	color: #999;
+}

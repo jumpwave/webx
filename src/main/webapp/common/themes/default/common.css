@@ -1,0 +1,829 @@
+﻿#innerFrame {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+#outerFrame {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+#linkbar {
+	padding-left: 20px;
+	line-height: 27px;
+	background-color: #f8f8f8;
+	border-bottom: #E6E4E4 1px solid;
+}
+#pageContainer {
+	zoom: 1;
+	position: relative;
+	background-color: #FFF;
+}
+#targetFrame {
+	width: 0;
+	height: 0;
+	display: none;
+}
+
+
+/* 头部工具容器 */
+.headToolbox {
+	position: relative;
+	height: 36px;
+	line-height: 36px;
+	border-bottom: 1px solid #dcdcdc;
+	_z-index: 1;
+}
+.headToolbox .title {
+	float: left;
+	display: inline;
+	font-weight: bold;
+	height: 36px;
+	line-height: 36px;
+	margin-left: 20px;
+}
+.headToolbox .toolbar {
+	margin: 5px 0 0 20px;
+	float: left;
+	display: inline;
+}
+.headToolbox .searchbox {
+	margin: 5px 10px 0 0;
+	float: right;
+	display: inline;
+}
+.headToolbox .filter {
+	width: 40px;
+	height: 26px;
+	background: url("./images/toolbar_filter_show.png") center no-repeat;
+	float: right;
+	cursor: ;
+	margin: 5px 10px 0 0;
+	display: inline;
+}
+.headToolbox .filter:HOVER,
+.headToolbox .filterHover {
+	background-image: url("./images/toolbar_filter_show_O.png");
+}
+.headToolbox .filterSelected {
+	background-image: url("./images/toolbar_filter_hide.png")
+}
+.headToolbox .filterSelected:HOVER,
+.headToolbox .filterSelectedHover {
+	background-image: url("./images/toolbar_filter_hide_O.png")
+}
+.headToolbox .dismode {
+	width: 76px;
+	height: 26px;
+	float: right;
+	margin: 5px 20px 0 0;
+	display: inline;
+}
+.headToolbox .dismode A {
+	width: 38px;
+	height: 26px;
+	float: left;
+	display: inline;
+	background: none no-repeat center;
+	cursor: pointer;
+}
+.headToolbox .dismode .thum {
+	background-image: url("./images/tab_thumbnail.png");
+}
+.headToolbox .dismode .thum:HOVER {
+	background-image: url("./images/tab_thumbnail_O.png");
+}
+.headToolbox .dismode .thumSelected,
+.headToolbox .dismode .thumSelected:HOVER {
+	background-image: url("./images/tab_thumbnail_S.png");
+}
+.headToolbox .dismode .list {
+	background-image: url("./images/tab_list.png");
+}
+.headToolbox .dismode .list:HOVER {
+	background-image: url("./images/tab_list_O.png");
+}
+.headToolbox .dismode .listSelected,
+.headToolbox .dismode .listSelected:HOVER {
+	background-image: url("./images/tab_list_S.png");
+}
+
+/* 搜索输入框 */
+.searchbox {
+    float: left;
+	height: 24px;
+	line-height: 24px;
+	border: 1px solid #bcbcbc;
+	background-color: #fff;
+}
+.searchbox.focus {
+	border-color: #217FE2;
+}
+.searchbox INPUT {
+	float: left;
+	display: inline;
+	width: 210px;
+	height: 24px;
+	line-height: 24px;
+	margin-left: 10px;
+	padding: 0;
+	border: 0;
+}
+.searchbox .icon {
+	float: left;
+	display: inline;
+	width: 33px;
+	height: 26px;
+	margin-top: -1px;
+	margin-right: -1px;
+	background: url("./images/SC_search.png") center no-repeat;
+	cursor: pointer;
+}
+.mhCk {
+	float: left;
+	width: 120px;
+	height: 36px;
+	padding-top: 20px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+.searchbox.focus .icon,
+.searchbox .icon:HOVER {
+	background-image: url("./images/SC_search_O.png");
+}
+
+/* 条件过滤面板 */
+.filterpanel {
+	position: relative;
+	zoom: 1;
+	background-color: #F8F8F8;
+	border-bottom: 1px solid #CCCCCC;
+	padding: 10px 20px;
+	min-height: 66px;
+	_height: 66px;
+	z-index: 2;
+}
+.filterpanel .options {
+	margin-right: 84px;
+}
+.filterpanel .options .option {
+	height: 26px;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	float: left;
+	display: inline;
+}
+.filterpanel .options .option LABEL {
+	width: 72px;
+	line-height: 26px;
+	float: left;
+	display: inline;
+}
+.filterpanel .options .option SPAN.inputbox {
+	height: 26px;
+	line-height: 26px;
+	float: left;
+	display: inline;
+}
+.filterpanel .buttons {
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	width: 84px;
+}
+.filterpanel .buttons BUTTON {
+	width: 84px;
+	height: 28px;
+	line-height: 26px;
+}
+.filterpanel .buttons BUTTON.filter {
+	display: block;
+}
+.filterpanel .buttons BUTTON.reset {
+	border-color: #D94C3A;
+	border-bottom-color: #701C18;
+	background-color: #D94C3A;
+	margin-top: 10px;
+	display: block;
+}
+
+/* 列表容器样式 */
+.listgrid {
+	position: relative;
+	margin: 1px;
+}
+.imageblocks {
+	margin: 0 20px;
+}
+
+/* 主界面内容显示容器 */
+#pageContainer .display {
+	position: relative;
+	overflow: auto;
+	z-index: 1;
+}
+
+/* 置顶按钮 */
+#gotoTop {
+	width: 36px;
+	height: 36px;
+	background: url("./images/btn_top.png") center no-repeat;
+	position: absolute;
+	right: 50px;
+	bottom: 50px;
+	cursor: pointer;
+	display: none;
+}
+#gotoTop:HOVER {
+	background: url("./images/btn_top_O.png") center no-repeat;
+}
+
+/* 基本信息详情与编辑界面样式 */
+.lineTitle {
+	height: 31px;
+	line-height: 31px;
+	margin: 0 20px 10px 20px;
+	padding-top: 20px;
+	position: relative;
+	zoom: 1;
+}
+.lineTitle .line {
+	position: absolute;
+	left: 0;
+	top: 35px;
+	width: 100%;
+	height: 1px;
+	overflow: hidden;
+	background: #d3d3d3;
+}
+.lineTitle .message {
+	position: relative;
+	left: 30px;
+	top: 0;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 0 10px;
+	background-color: #FFF;
+	display: inline;
+}
+.lineTitle .btn {
+	position: relative;
+	left: 20px;
+	top: -1px;
+	padding: 5px 10px 5px 30px;
+	background-color: #FFF;
+	background: #FFF 10px no-repeat;
+	cursor: pointer;
+	color: #217FE2;
+	display: inline;
+}
+.lineTitle .btn:HOVER,
+.lineTitle .btn.hover {
+	color: #FF9900;
+}
+.lineTitle .editBtn {
+	background-image: url("./images/edit.png");
+}
+
+/* 悬浮页面面板 */
+.floatPagePanel {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #FFF;
+	overflow: auto;
+}
+
+/* 步骤导航样式 */
+.steps {
+	height: 35px;
+	padding-top: 20px;
+	zoom: 1;
+}
+
+/* 添加信息容器 */
+.folderAdd {
+	zoom: 1;
+	height: 100%;
+	position: relative;
+	overflow: auto;
+}
+.folderAdd .steppanel {
+	position: relative;
+	display: none;
+	*zoom: 1;
+}
+.folderAdd .steppanel .header {
+	height: 35px;
+	line-height: 35px;
+	border-bottom: 1px solid #dcdcdc;
+}
+.folderAdd .steppanel .header .toolbar {
+	margin: 5px 0 0 20px;
+	float: left;
+	display: inline;
+}
+.folderAdd .steppanel .display {
+	margin: 0 20px;
+	overflow: auto;
+}
+.folderAdd .steppanel .buttons {
+	margin: 20px;
+}
+.folderAdd .steppanel .baseinfoEdit .buttons {
+	margin-left: 74px;
+}
+
+/* 文件夹选择对话框 */
+.folderChooseDialog {
+	zoom: 1;
+	background-color: #FFF;
+}
+.folderChooseDialog .baseinfoEdit .row {
+	padding-left: 0;
+}
+.folderChooseDialog .formbox {
+	margin: 0 20px;
+}
+.folderChooseDialog .formbox .options,
+.folderChooseDialog .formbox .optionpanel {
+	margin-top: 20px;
+}
+.folderChooseDialog .formbox .optionpanel .row {
+	margin-left: -10px;
+}
+.folderChooseDialog .formbox .optionpanel .row .fieldLabel {
+	width: 62px;
+}
+.folderChooseDialog .formbox .optionpanel .row .fieldLabel.required {
+	width: 72px;
+}
+.folderChooseDialog .formbox .optionpanel .row .fieldValue INPUT.text,
+.folderChooseDialog .formbox .optionpanel .row .fieldValue TEXTAREA {
+	width: 174px;
+}
+.folderChooseDialog .formbox .searchbox {
+	margin-top: 3px;
+}
+.folderChooseDialog .formbox .searchbox INPUT {
+	width: 214px;
+}
+.folderChooseDialog .formbox .searchlist {
+	height: 180px;
+	margin-top: 10px;
+	border: 1px solid #BCBCBC;
+	overflow: auto;
+}
+.folderChooseDialog .formbox .searchlist UL LI {
+	height: 24px;
+	line-height: 24px;
+	padding: 0 10px;
+	cursor: pointer;
+}
+.folderChooseDialog .formbox .searchlist UL LI:HOVER,
+.folderChooseDialog .formbox .searchlist UL LI.hover {
+	background-color: #6FB5FF;
+}
+.folderChooseDialog .formbox .searchlist UL LI.selected {
+	background-color: #6FB5FF;
+	color: #FFF;
+}
+
+#folderEditForm {
+	padding-top: 10px;
+}
+
+.baseinfoEdit {
+	zoom: 1;
+}
+.baseinfoEdit .row {
+	padding-left: 64px;
+	padding-bottom: 11px;
+	zoom: 1;
+}
+.baseinfoEdit .row .fieldLabel {
+	width: 72px;
+	line-height: 25px;
+	padding-left: 10px;
+	float: left;
+	display: inline;
+}
+.baseinfoEdit .row .fieldLabel.right {
+	padding-left: 30px;
+}
+.baseinfoEdit .row .fieldLabel.required {
+	width: 82px;
+	padding-left: 0px;
+}
+.baseinfoEdit .row .fieldLabel.required.right {
+	padding-left: 20px;
+}
+.baseinfoEdit .row .fieldLabel EM {
+	width: 10px;
+	color: #FF0000;
+	display: inline-block;
+}
+.baseinfoEdit .row .fieldValue {
+	float: left;
+}
+.baseinfoEdit .row .fieldValue INPUT.text {
+	width: 178px;
+}
+.baseinfoEdit .row .fieldValue INPUT.text.double {
+	width: 396px;
+}
+.baseinfoEdit .row .fieldValue INPUT.text.long {
+	width: 480px;
+}
+.baseinfoEdit .row .fieldValue INPUT.text.half {
+	width: 70px;
+}
+.baseinfoEdit .row .fieldValue INPUT.text.secondary {
+	width: 100px;
+}
+.baseinfoEdit .row .fieldValue SELECT {
+	width: 198px;
+}
+.baseinfoEdit .row .fieldValue SELECT.long {
+	width: 500px;
+}
+.baseinfoEdit .row .fieldValue SELECT.secondary {
+	width: 72px;
+}
+.baseinfoEdit .row .fieldValue TEXTAREA {
+	width: 396px;
+	height: 67px;
+}
+.baseinfoEdit .row .fieldValue TEXTAREA.short {
+	width: 178px;
+}
+.baseinfoEdit .row .fieldValue TEXTAREA.long {
+	width: 480px;
+}
+.baseinfoEdit .buttons {
+	padding-left: 64px;
+}
+
+#detailbox {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.baseinfoDetail {
+	zoom: 1;
+}
+.baseinfoDetail .row {
+	zoom: 1;
+	position: relative;
+	margin: 0 20px 5px 80px;
+	min-height: 26px;
+	_height: 26px;
+}
+.baseinfoDetail .row LABEL {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 78px;
+	line-height: 26px;
+}
+.baseinfoDetail .row .fieldText {
+	line-height: 26px;
+	margin-left: 80px;
+}
+.baseinfoDetail .buttons {
+	margin-top: 20px;
+	padding-left: 80px;
+}
+
+/* 资源详情样式 */
+.resourcebox {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	*zoom: 1;
+}
+.resourcebox .pluginbox {
+	position: relative;
+	margin: 10px 350px 10px 10px;
+}
+
+.resourcebox .swfviewbox {
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+
+.resourcebox .resource {
+	position: absolute;
+	left: 0;
+	top: 0;
+	zoom: 1;
+	overflow: hidden;
+	width: 88px;
+	height: 100%;
+}
+.resourcebox .pluginpanel {
+	margin-left: 98px;
+	height: 100%;
+}
+.resourcebox .detailpanel {
+	width: 339px;
+	height: 100%;
+	border-left: 1px solid #DCDCDC;
+	background-color: #F8F8F8;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.resourcebox .detailpanel .header {
+	height: 35px;
+	line-height: 35px;
+	border-bottom: 1px solid #DDD;
+	background-color: #F3F3F3;
+	font-size: 16px;
+	font-weight: bold;
+	padding-left: 10px;
+	position: relative;
+}
+.resourcebox .detailpanel .header EM {
+	font-size: 12px;
+	font-weight: normal;
+	color: #999;
+}
+.resourcebox .detailpanel .header .icons {
+	position: absolute;
+	right: 0;
+	top: 10px;
+	height: 16px;
+}
+.resourcebox .detailpanel .header .icon {
+	width: 16px;
+	height: 16px;
+	float: right;
+	_display: inline;
+	margin-right: 10px;
+	background: none center no-repeat;
+}
+.resourcebox .detailpanel .header .ovit {
+	background-image: url("./images/ME_list_ovit.png");
+}
+.resourcebox .detailpanel .header .ovit:HOVER {
+	background-image: url("./images/ME_list_ovit_O.png");
+}
+.resourcebox .detailpanel .header .playback {
+	background-image: url("./images/ME_list_playback.png");
+}
+.resourcebox .detailpanel .header .playback:HOVER {
+	background-image: url("./images/ME_list_playback_O.png");
+}
+.resourcebox .detailpanel .header .preview {
+	background-image: url("./images/ME_list_preview.png");
+}
+.resourcebox .detailpanel .header .preview:HOVER {
+	background-image: url("./images/ME_list_preview_O.png");
+}
+.resourcebox .detailpanel .header .download {
+	background-image: url("./images/ME_list_download.png");
+}
+.resourcebox .detailpanel .header .download:HOVER {
+	background-image: url("./images/ME_list_download_O.png");
+}
+.resourcebox .detailpanel .header .edit {
+	background-image: url("./images/ME_list_edit.png");
+}
+.resourcebox .detailpanel .header .edit:HOVER {
+	background-image: url("./images/ME_list_edit_O.png");
+}
+.resourcebox .detailpanel .header .close {
+	background-image: url("./images/popup_btn_close2.png");
+}
+.resourcebox .detailpanel .header .close:HOVER {
+	background-image: url("./images/popup_btn_close2_O.png");
+}
+
+.resourcebox .detailpanel .display .detail {
+	height: 100%;
+	position: relative;
+	overflow: auto;
+}
+.resourcebox .detailpanel .display .edit {
+	height: 100%;
+	display: none;
+}
+.resourcebox .detailpanel .display .lineTitle .message,
+.resourcebox .detailpanel .display .lineTitle .btn {
+	background-color: #F8F8F8;
+}
+.resourcebox .detailpanel .display .baseinfo {
+	margin: 0 32px;
+}
+.resourcebox .detailpanel .display .baseinfo TD {
+	line-height: 25px;
+	vertical-align: top;
+	padding-bottom: 8px;
+}
+.resourcebox .detailpanel .display .baseinfo TD.fieldLabel {
+	width: 72px;
+}
+
+.resourcebox .detailpanel .display .edit .linkbar {
+	line-height: 27px;
+	border-bottom: 1px solid #E6E4E4;
+	background-color: #F8F8F8;
+	padding-left: 10px;
+}
+.resourcebox .detailpanel .display .edit .editpanel {
+	overflow: auto;
+}
+.resourcebox .detailpanel .display .edit .editpanel .baseinfoEdit {
+	margin-top: 10px;
+}
+.resourcebox .detailpanel .display .edit .editpanel .baseinfoEdit .row {
+	padding-left: 20px
+}
+.resourcebox .detailpanel .display .edit .buttons {
+	padding: 10px;
+	text-align: left;
+	border-top: 1px solid #D3D3D3;
+}
+.resourcebox .detailpanel .display .edit .buttons BUTTON {
+	margin-right: 10px;
+}
+
+.resourceUpload {
+	height: 100%;
+	zoom: 1;
+	position: relative;
+	overflow: auto;
+	background-color: #FFF;
+	margin-right: 320px;
+}
+
+.resourceUpload .uploadblocks {
+	margin: 0 20px;
+}
+
+.resourceUpload .buttons {
+	margin: 20px 20px 0 20px;
+}
+
+.resourceEdit {
+	width: 319px;
+	height: 100%;
+	border-left: 1px solid #DCDCDC;
+	zoom: 1;
+	overflow: auto;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.resourceEdit .editpanel {
+	position: relative;
+	overflow: auto;
+}
+.resourceEdit .editpanel .lineTitle .message {
+	left: -10px;
+}
+.resourceEdit .editpanel .baseinfoEdit .row {
+	padding-left: 20px;
+}
+.resourceEdit .editpanel .baseinfoEdit .row .fieldValue TEXTAREA {
+	width: 178px;
+	height: 67px;
+}
+.resourceEdit .buttons {
+	height: 30px;
+	padding: 10px 0;
+	background-color: #F9F9F9;
+	border-top: 1px solid #DCDCDC;
+}
+.resourceEdit .buttons BUTTON {
+	margin-left: 10px;
+}
+
+/* 面板阴影样式 */
+.shadow .shadowbox {
+	width: 6px;
+	height: 100%;
+	overflow: hidden;
+}
+.shadow .shadowbox .line {
+	float: right;
+	display: inline;
+	width: 1px;
+	height: 100%;
+	overflow: hidden;
+}
+.shadow .shadowbox .line.l6 {
+	background-color: #f2f2f2;
+}
+.shadow .shadowbox .line.l5 {
+	background-color: #efefef;
+}
+.shadow .shadowbox .line.l4 {
+	background-color: #ededed;
+}
+.shadow .shadowbox .line.l3 {
+	background-color: #e9e9e9;
+}
+.shadow .shadowbox .line.l2 {
+	background-color: #e2e2e2;
+}
+.shadow .shadowbox .line.l1 {
+	background-color: #ddd;
+}
+
+#uploadUploader {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+/* 录像中提示样式 */
+#recordingTip {
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size: 40px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #f00;
+}
+
+
+/* 基本信息详情与编辑界面样式 */
+.slide {
+	height: 16px;
+	line-height: 16px;
+	margin: 0 10px 10px 10px;
+	padding-top: 10px;
+	position: relative;
+	zoom: 1;
+}
+.slide .line {
+	position: absolute;
+	left: 0px;
+	width: 100%;
+	height: 1px;
+	overflow: hidden;
+	background: #d3d3d3;
+}
+.slide .message {
+	position: relative;
+	left: 10px;
+	top: 0;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0 5px;
+	background-color: #F8F8F8;
+	display: inline;
+	cursor: pointer;
+}
+.slide .btn {
+	position: relative;
+	left: 0px;
+	top: -1px;
+	padding: 5px 10px 5px 10px;
+	background-color: #F8F8F8;
+	background: #F8F8F8 no-repeat;
+	color: #217FE2;
+	display: inline;
+	cursor: pointer;
+}
+.slide .btn:HOVER,
+.slide .btn.hover {
+	color: #FF9900;
+}
+.slide .slideBtn {
+	background-image: url("./images/down.png");
+}
+
+.slide .slideBtnUp {
+	background-image: url("./images/up.png");
+}
+
+.slideContent{
+	display:none;
+}
+
+.queryHighLight {
+	color: red;
+}
+#viidServerIdGen {
+	float: right;
+	margin-left:10px;
+}
+
+
+#viidServerIdGen I {
+	float: left;
+	background-image: url("./images/SC_search_P.png");
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+}

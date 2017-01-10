@@ -1,0 +1,23 @@
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<link href="baseui/6-X-UI/themes/default/css/reset.css" rel="stylesheet" type='text/css'>
+<link href="baseui/6-X-UI/themes/default/css/grids.css" rel="stylesheet" type='text/css'>
+<link href="baseui/6-X-UI/themes/default/css/base.css" rel="stylesheet" type='text/css'>
+<link href="baseui/6-X-UI/themes/default/css/baseV1.2.0.css" rel="stylesheet" type='text/css'>
+<link href="baseui/6-X-UI/themes/default/css/ie.css" rel="stylesheet" type='text/css' />
+<link href="baseui/6-X-UI/baseui/plugins/popup/skin/default/pop.css" rel="stylesheet"/>
+<link href="baseui/6-X-UI/themes/default/css/ui.grid.css" rel="stylesheet"/>
+<script src= "baseui/6-X-UI/baseui/plugins/jquery.js"></script> 
+<script src= "baseui/6-X-UI/baseui/language/messages_zh_cn.js"></script> 
+<script src= "baseui/6-X-UI/baseui/plugins/jquery-ui.js"></script> 
+<script src= "baseui/6-X-UI/baseui/plugins/popup/pop.js"></script> 
+<script src="baseui/6-X-UI/baseui/plugins/grid/grid.core.js"></script>
+<script src="baseui/6-X-UI/baseui/plugins/grid/grid.filter.js"></script>
+<script src="baseui/6-X-UI/baseui/plugins/forms/jquery.form.js"></script>
+<script src="baseui/6-X-UI/baseui/plugins/forms/jquery.validate.js"></script>
+<script src="baseui/6-X-UI/baseui/plugins/forms/jquery.uniform.js"></script>
+<script src="baseui/6-X-UI/baseui/plugins/ui/jquery.breadcrumbs.js"></script>
+<script src="baseui/6-X-UI/baseui/plugins/ui/jquery.processbar.js"></script>
+<script src="baseui/6-X-UI/baseui/plugins/ui/jquery.select2.js"></script>
+<script src="baseui/6-X-UI/baseui/index.js"></script>
+<script src="baseui/6-X-UI/baseui/jquery-override.js"></script>
+<script src="baseui/My97DatePicker/WdatePicker.js"></script>

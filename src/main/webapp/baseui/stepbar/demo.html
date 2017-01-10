@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title>测试步骤导航栏</title>
+	
+    <meta http-equiv="keywords" content="">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	
+	<link rel="stylesheet" type="text/css" href="../../../common/base/css/base.style.css"></link>
+	<link type="text/css" href="stepbar.css" rel="stylesheet"/>
+    
+	<script type="text/javascript" src="../../../common/js/jquery.js"></script>
+	<script type="text/javascript" src="../../../common/base/js/namespace.js"></script>
+	<script type="text/javascript" src="../../../common/utils/tool.js"></script>
+	<script type="text/javascript" src="stepbar.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var stepBar = $('#stepBar').stepBar([{
+								text: '新建案件',
+								listener: function() {
+									$('#stepBar').setStep(0);
+								}
+							}, {
+								text: '添加资料',
+								listener: function() {
+									$('#stepBar').setStep(1);
+								}
+							}, {
+								text: '添加嫌疑人',
+								listener: function() {
+									$('#stepBar').setStep(2);
+								}
+							}, {
+								text: '关联警情',
+								listener: function() {
+									$('#stepBar').setStep(3);
+								}
+							}]).setStep(2);
+		});
+	</script>
+	
+  </head>
+  
+  <body>
+  	<div id="stepBar" style="margin: 50px;"></div>
+  </body>
+</html>

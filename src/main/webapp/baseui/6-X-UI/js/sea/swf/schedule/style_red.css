@@ -1,0 +1,307 @@
+.default{
+	color: #272727;
+	font-family: "Verdana";
+	font-size: 14;
+}
+
+.labelText_select {
+	color: #272727;
+}
+
+.ruleLabel {
+	color: #272727;
+}
+
+.text_dayBoard{
+	color: #272727;
+	font-family: "Verdana";
+	font-size: 13;
+	font-weight:bold;
+}
+Screen{
+	width: 500;
+	height:300;
+}
+
+RecordSchedule{
+	flex-lib:http://172.7.205.105:7080;
+	background-color:0xffffff;
+	background-alpha: 1;
+	/*background-colors: 0xffffff, 0x707070, 0xffffff;*/
+	background-alphas: 0, 127, 255;
+	background-ratios: 0, 127, 255;
+	background-rotation: 90;
+	
+	line-thickness:2;
+	line-color:0x7b7b7b;
+	line-alpha:1;
+	
+	/*ellipse-width: 0;
+	ellipse-height: 0;
+	line-thickness:5;
+	line-color:0x000000;
+	line-alpha:1;
+	line-pixelHinting:false;
+	line-scaleMode:normal;
+	/*line-caps
+	line-joints
+	line-miterLimit:3;
+	matrix-rotation:90;
+	lineg-type:linear;
+	lineg-colors:0xFF0000,0x000000;
+	lineg-alphas:1,1;
+	lineg-ratios:0,255;
+	lineg-type:linear;
+	lineg-spread: pad;
+	lineg-interpolation: rgb;
+	lineg-focalPointRatio: 0;*/
+}
+
+Rule{
+	background-color:0x00ffff;
+	background-alpha: 1;
+	background-colors: 0xb2b2b2, 0x989898;
+	background-alphas: 1, 1;
+	background-ratios: 0, 255;
+	background-rotation: 90;
+	
+	line-thickness:1;
+	line-color:0x868686;
+	line-alpha:1;
+	line-in-color:0xC7C7C7;
+	
+	height:25;
+	x:0;
+	textY:5;
+	left-space:130;
+	
+	labelValues: 00:00,03:00,06:00,09:00,12:00,15:00,18:00,21:00,24:00;
+}
+ButtonBarAlarm{
+	type-list:del,delAll,add;
+	text-list:删除,清空,添加;
+	icon-list:del.png,del_all.png,add.png;
+	horizontalGap: 20;
+	background-color:0x00ffff;
+	background-alpha: 1;
+	background-colors: 0xD1D1D1, 0xB7B7B7;
+	background-alphas: 1, 1;
+	background-ratios: 0, 255;
+	background-rotation: 90;
+	height:30;
+	buttonY:4;
+	buttonDistance:6;
+	
+	beginX:10;
+	
+	line-thickness:1;
+	line-color:0x868686;
+}
+ButtonBar{
+	type-list:line_Yellow,line_Blue,del,delAll,copy,add;
+	text-list:移测录像,计划录像,删除,清空,复制到其他日期,添加;
+	icon-list:image_2.png,image_1.png,del.png,del_all.png,copy.png,add.png;
+	horizontalGap: 20;
+	background-color:0x00ffff;
+	background-alpha: 1;
+	background-colors: 0xD1D1D1, 0xB7B7B7;
+	background-alphas: 1, 1;
+	background-ratios: 0, 255;
+	background-rotation: 90;
+	height:30;
+	buttonY:4;
+	buttonDistance:6;
+	
+	beginX:10;
+	
+	line-thickness:1;
+	line-color:0x868686;
+}
+Button_downState{
+	background-colors: 0xeeeeee, 0x000000;
+	background-alphas: .3, .3;
+	background-ratios: 0, 255;
+	background-rotation: 90;
+	ellipse-width: 8;
+	ellipse-height: 8;
+	line-color:0x868686;
+	line-thickness:2;
+}
+Button_overState{
+	background-colors: 0xffffff, 0x0000000;
+	background-alphas: .3, .3;
+	background-ratios: 0, 255;
+	background-rotation: 90;
+	ellipse-width: 8;
+	ellipse-height: 8;
+	line-color:0x868686;
+	line-thickness:2;
+}
+Button_upState{
+	background-color:0xffffff;
+	background-alpha: 0.0;
+	background-alphas: 0.3, 0.3;
+	background-ratios: 0, 255;
+	background-rotation: 90;
+	ellipse-width: 8;
+}
+
+Button{
+	iconHeight:20;
+	iconX:10;
+	iconDistance:5;
+}
+
+
+DayBoard{
+	height:50;
+	left-space:130;
+	background-left:0xababab;
+	background-right:0xdcdcdc;
+	background-click:0xc9c9c9;
+	light-line:0xbebebe;
+	dark-line:0x8a8a8a;
+	line-one:0xcdcdcd;
+	line-two:0xb9b9b9;
+	line-three:0x7b7b7b;
+	
+	x:0;
+	y:55;
+}
+
+
+YellowRecordStick{
+	background-alpha: 1;
+	background-colors: 0xe29111, 0xbe6100;
+	line-color:0xad5800;
+	background-alphas: 1, 1;
+	background-ratios: 0, 255;
+	background-rotation: 90;
+}
+
+BlueRecordStick{
+	background-alpha: 1;
+	background-colors: 0x61b0e2, 0x0d6dc0;
+	line-color:0x005062;
+    
+	background-alphas: 1, 1;
+	background-ratios: 0, 255;
+	background-rotation: 90;
+}
+
+bar_static{
+	background-color:0x00ffff;
+	background-alpha: 1;
+	background-colors: 0x989898,0xe1e1e1;
+	background-alphas: 1, 1;
+	background-ratios: 0, 127;
+	background-rotation: 0;
+	
+	line-thickness:1;
+	line-color:0x868686;
+	line-alpha:1;
+	line-in-color:0xC7C7C7;
+	
+}
+bar_null{
+	background-color:0x00ffff;
+	background-alpha: 1;
+	background-colors: 0xB7B7B7,0xD1D1D1;
+	background-alphas: 1, 1;
+	background-ratios: 0, 255;
+	background-rotation: 0;
+	
+	line-thickness:1;
+	line-color:0xC7C7C7;
+	line-alpha:1;
+	
+}
+
+ScrollBar{
+	bars-color: 0xcccccc;
+	bars-radius: 3;
+	move-color: 0xc5c5c5;
+}
+
+disableCanvas{
+	background-color:0xcdcdcd;
+	background-alpha: 0.5;
+}
+
+Calendar{
+	background-color:0xc7c7c7;
+	outline-color:0x7e7e7e;
+	innerline-color:0x9b9b9b;
+	light-color:0xdddddd;
+	split-line-color:d5d5d5;
+	weekname-color:0x606060;
+	day-in-month-color:0x000000;
+	day-not-in-month-color:0xa4a4a4;
+	today-color:0xd86200;
+	day-mouse-in-color:0x9ac6f9;
+	weekname-background-color:0xf2f2f2;
+	day-background-color:0xfffff;
+	button-text-color:0x000000;
+	button-image-color:0x4b4b4b;
+}
+
+Calendar_Button_downState{
+	background-colors: 0xc4c4c4, 0xe1e1e1, 0xd2d2d2;
+	background-alphas: 1,1,1;
+	background-ratios: 0, 127, 255;
+	background-rotation: 90;
+	ellipse-width: 0;
+	ellipse-height: 0;
+	line-color:0x7e7e7e;
+	line-thickness:1;
+}
+Calendar_Button_overState{
+	background-colors: 0xececec, 0xe4e4e4,0xd8d8d8;
+	background-alphas: 1,1,1;
+	background-ratios: 0, 127, 255;
+	background-rotation: 90;
+	ellipse-width: 0;
+	ellipse-height: 0;
+	line-color:0x7e7e7e;
+	line-thickness:1;
+}
+Calendar_Button_upState{
+	background-color:0xffffff;
+	background-alpha: 0.0;
+	background-alphas: 0.3, 0.3;
+	background-ratios: 0, 255;
+	background-rotation: 90;
+	ellipse-width: 2;
+}
+
+Calendar_Buttonbar_upState{
+	background-colors: 0xdcdcdc, 0xd6d6d6,0xcccccc;
+	background-alphas: 1,1,1;
+	background-ratios: 0, 127, 255;
+	background-rotation: 90;
+	ellipse-width: 0;
+	ellipse-height: 0;
+	line-color:0x7e7e7e;
+	line-thickness:1;	
+}
+
+Calendar_Buttonbar_downState{
+	background-colors: 0xc4c4c4, 0xe1e1e1, 0xd2d2d2;
+	background-alphas: 1,1,1;
+	background-ratios: 0, 127, 255;
+	background-rotation: 90;
+	ellipse-width: 0;
+	ellipse-height: 0;
+	line-color:0x7e7e7e;
+	line-thickness:1;
+}
+Calendar_Buttonbar_overState{
+	background-colors: 0xececec, 0xe4e4e4,0xd8d8d8;
+	background-alphas: 1,1,1;
+	background-ratios: 0, 127, 255;
+	background-rotation: 90;
+	ellipse-width: 0;
+	ellipse-height: 0;
+	line-color:0x7e7e7e;
+	line-thickness:1;
+}

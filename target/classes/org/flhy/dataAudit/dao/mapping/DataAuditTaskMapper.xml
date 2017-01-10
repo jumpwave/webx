@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.flhy.dataAudit.dao.DataAuditTaskMapper">
+
+	<resultMap type="DataAuditTask" id="DataAuditTaskResultMap">
+		<id property="task_id" column="task_id"/>
+		<result property="task_name" column="task_name"/>
+		<result property="task_target" column="task_target"/>
+		<result property="first_execute_time" column="first_execute_time"/>
+		<result property="execute_times" column="execute_times"/>
+		<result property="execute_interval" column="execute_interval"/>
+		<result property="execute_interval_unit" column="execute_interval_unit"/>
+		<result property="data_source" column="data_source"/>
+		<result property="audit_script" column="audit_script"/>
+    	<collection property="script_params" column="task_id" javaType="ArrayList" ofType="DataAuditScriptParam" select="org.flhy.dataAudit.dao.DataAuditScriptParamMapper.findDataAuditScriptParamByTask"/> 		
+	</resultMap>
+
+	<select id="getDataAuditTask" resultType="DataAuditTask" resultMap="DataAuditTaskResultMap">
+		<![CDATA[
+			select * from data_audit_task t where t.task_id = #{task_id}
+		]]> 
+	</select>
+
+	<select id="findDataAuditTask" resultType="DataAuditTask" resultMap="DataAuditTaskResultMap">
+			select * from data_audit_task t 	
+	</select>		
+	
+	<insert id="insertDataAuditTask" parameterType="DataAuditTask">
+		insert into data_audit_task values(
+			#{task_id, jdbcType=VARCHAR},
+			#{task_name, jdbcType=VARCHAR},
+			#{task_target, jdbcType=VARCHAR},
+			#{first_execute_time, jdbcType=VARCHAR},
+			#{execute_times, jdbcType=VARCHAR},
+			#{execute_interval, jdbcType=VARCHAR},
+			#{execute_interval_unit, jdbcType=VARCHAR},
+			#{data_source, jdbcType=CHAR},
+			#{audit_script, jdbcType=VARCHAR}			
+		)
+	</insert>
+	
+	<update  id="updateDataAuditTask" parameterType="DataAuditTask">
+		update data_audit_task set	
+			task_target = #{task_target, jdbcType=VARCHAR},
+			first_execute_time = #{first_execute_time, jdbcType=VARCHAR},
+			execute_times = #{execute_times, jdbcType=VARCHAR},
+			execute_interval = #{execute_interval, jdbcType=VARCHAR},
+			execute_interval_unit = #{execute_interval_unit, jdbcType=VARCHAR},
+			data_source = #{data_source, jdbcType=VARCHAR},
+			audit_script = #{audit_script, jdbcType=VARCHAR}
+			where task_id = #{task_id}	 
+	</update>
+	
+	<delete id="delete">
+		delete from data_audit_task t  
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			    and t.task_id in 
+			    <foreach collection="list" item="taskIds" index="index" open="(" separator="," close=")">#{taskIds}</foreach>	
+		</trim>
+	</delete>
+	
+</mapper>

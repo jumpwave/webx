@@ -1,0 +1,3 @@
+      <Context docBase="web" path="/web" reloadable="false" privileged="true" source="org.eclipse.jst.j2ee.server:web">	
+        <ResourceLink global="jdbc/spagobi" name="jdbc/spagobi" type="javax.sql.DataSource"/>
+</Context>

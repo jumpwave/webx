@@ -1,0 +1,43 @@
+.tabs {
+	margin: 0px 20px 0 20px;
+	border-bottom: 1px solid #D3D3D3;
+}
+.tabs .tab {
+	height: 28px;
+	line-height: 30px;
+	border-bottom: 4px solid #FFF;
+	padding: 0 20px;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+	float: left;
+}
+.tabs .tab:HOVER,
+.tabs .tab.hover {
+	color: #50A5FF;
+}
+.tabs .tab.selected {
+	color: #50A5FF;
+	border-bottom-color: #50A5FF;
+}
+.tabs .tab.disabled {
+	cursor: default;
+	color: #CDCECF;
+}
+.tabs .tab.selected.disabled {
+	border-bottom-color: #CDCECF;
+}
+
+.tabpanels {}
+.tabpanels .tabpanel {
+	zoom: 1;
+	height: 100%;
+	display: none;
+}
+.tabpanels .tabpanel .linkbar {
+	padding-left: 20px;
+	line-height: 27px;
+	background-color: #f8f8f8;
+	border-bottom: #E6E4E4 1px solid;
+}

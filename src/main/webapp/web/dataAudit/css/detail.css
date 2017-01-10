@@ -1,0 +1,46 @@
+/* 基本信息详情与编辑界面样式 */
+.lineTitle {
+	height: 31px;
+	line-height: 31px;
+	margin: 0 20px 10px 20px;
+	padding-top: 20px;
+	position: relative;
+	zoom: 1;
+}
+.lineTitle .line {
+	position: absolute;
+	left: 0;
+	top: 35px;
+	width: 100%;
+	height: 1px;
+	overflow: hidden;
+	background: #d3d3d3;
+}
+.lineTitle .message {
+	position: relative;
+	left: 30px;
+	top: 0;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 0 10px;
+	background-color: #FFF;
+	display: inline;
+}
+.lineTitle .btn {
+	position: relative;
+	left: 20px;
+	top: -1px;
+	padding: 5px 10px 5px 30px;
+	background-color: #FFF;
+	background: #FFF 10px no-repeat;
+	cursor: pointer;
+	color: #217FE2;
+	display: inline;
+}
+.lineTitle .btn:HOVER,
+.lineTitle .btn.hover {
+	color: #FF9900;
+}
+.lineTitle .editBtn {
+	background-image: url("./images/edit.png");
+}

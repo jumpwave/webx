@@ -1,0 +1,138 @@
+@CHARSET "UTF-8";
+
+.graphDiv {
+	background-image: url(../images/ico_grid.png);
+	margin: 20px 20px 20px 20px;
+	border: 1px solid #DCDCDC;
+}
+
+/* 属性界面 */
+#myflow_props {
+	position: absolute;
+	background-color: #fff;
+	float: right;
+	width: 260px;
+	border: 1px solid #DCDCDC;
+	display: none;
+}
+
+#myflow_props>.title {
+	padding: 10px 10px 10px 10px;
+	font-size: 14px;
+	border-bottom: 1px solid #DCDCDC;
+	font-weight: bold;
+}
+
+#myflow_props>.title>.closebtn {
+	width: 16px;
+	height: 16px;
+	float: right;
+	padding-right: 1px;
+	cursor:hand;
+	background: url("../images/btn_pal_close.png") no-repeat;
+}
+
+#myflow_props>.title>.closebtn:HOVER{
+	background: url("../images/btn_pal_close_O.png") no-repeat;
+}
+
+#myflow_props>.info {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+#myflow_props>.info>DIV {
+	margin-bottom: 20px;
+}
+
+#myflow_props>.fieldTitle {
+	float: left;
+	height: 20px;
+	width: 100%;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#myflow_props>.fieldTitle>.message {
+	margin-left: 10px;
+}
+
+#myflow_props>.fieldTitle>.line {
+	height: 1px;
+	overflow: hidden;
+	background: #D7D9DB;
+	margin-top: -8px;
+	margin-left: 80px;
+	margin-right: 10px;
+}
+
+#myflow_props>.fieldTitleLine {
+	height: 1px;
+	background-color: #D5D5D5;
+	margin-top: 10px;
+	margin-right: 10px;
+	overflow: hidden;
+}
+
+#myflow_props>.fieldInfos {
+	overflow: auto;
+	margin-right: 10px;
+	margin-top: 25px;
+	margin-bottom: 20px;
+} 
+
+#myflow_props>.fieldInfos>.fieldInfo {
+	margin: 10px 0px 20px 10px;
+}
+
+#myflow_props>.fieldInfos>.fieldInfo>.field {
+	margin: 10px 0px 5px 0px;
+}
+
+#myflow_props>.fieldInfos>.fieldInfo>.field.tip {
+	color: #999999;
+}
+
+#myflow_props>.button {
+	position: absolute;
+	bottom: 10px;
+	left: 15px;
+}
+
+.myflow_log { 
+	position: absolute;
+	height: 40%;
+	bottom: 0px;
+	background-color:#FFFFFF;
+	border-top: 1px solid #DCDCDC;
+	display: none;
+}
+
+.myflow_log A {
+	text-decoration: none;
+	background-color: #F1F2F3;
+}
+
+.myflow_log>.tab-line-nav {
+	background-color: #F1F2F3;
+}
+
+.myflow_log>.tab-line-nav>.closebtn {
+	width: 16px;
+	height: 16px;
+	float: right;
+	margin: 10px 10px 1px 1px;
+	cursor:hand;
+	background: url("../images/btn_pal_close.png") no-repeat;
+}
+
+.myflow_log>.tab-line-nav>.closebtn:HOVER{
+	background: url("../images/btn_pal_close_O.png") no-repeat;
+}
+
+.myflow_log>.tab-content>.log {
+	padding: 0px 0px 0px 10px;
+	overflow: auto;
+	overflow-y: scroll;
+	font-size: 14px;
+}

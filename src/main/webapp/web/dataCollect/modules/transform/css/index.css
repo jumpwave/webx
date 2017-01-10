@@ -1,0 +1,410 @@
+@CHARSET "UTF-8";
+
+.container {
+	width: 100%;
+}
+
+.container>table {
+	width: 100%;
+	border: 0px;
+}
+
+.container>table tr {
+	width: 100%;
+}
+
+.container>table td {
+	vertical-align: top;
+}
+
+.titleTd {
+	height: 40px;
+	border-bottom: 1px solid #CCCFD4;
+}
+
+.titleTd>.desc {
+	float: left;
+	line-height: 40px;
+	margin-left: 10px;
+}
+
+.titleTd>.desc>.title {
+	float:left;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.titleTd>.desc>.title>INPUT {
+	margin-top: 5px;
+}
+
+.titleTd>.desc>.editBtn {
+	float:left;
+	padding-left: 30px;
+	margin-top: 12px;
+	cursor:hand;
+	font-size: 12px;
+	width: 16px;
+	height: 16px;
+	background: url("../../../images/toolbar_btn_edit.png") no-repeat 10px;
+}
+
+.titleTd>.desc>.editBtn:HOVER {
+	background: url("../../../images/toolbar_btn_edit_O.png") no-repeat 10px;
+}
+
+.titleTd>.desc>.saveBtn {
+	float:left;
+	width: 26px;
+	height: 26px;
+	margin-top: 5px;
+	margin-left: 5px;
+	color: #4C77BA;
+	cursor:hand;
+	background: url("../../../images/btn_text_confirm.png") no-repeat;
+	display: none;
+}
+.titleTd>.desc>.saveBtn:HOVER {
+	background: url("../../../images/btn_text_confirm_O.png") no-repeat;
+}
+
+.titleTd>.desc>.cancelBtn {
+	float:left;
+	width: 26px;
+	height: 26px;
+	margin-top: 5px;
+	margin-left: 5px;
+	color: #4C77BA;
+	cursor:hand;
+	background: url("../../../images/btn_text_cancel.png") no-repeat;
+	display: none;
+}
+
+.titleTd>.desc>.cancelBtn:HOVER{
+	background: url("../../../images/btn_text_cancel_O.png") no-repeat;
+}
+
+.titleTd>.btn {
+	float: right;
+	line-height: 20px;
+}
+
+.titleTd>.btn>.run {
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+	padding-left: 20px;
+	font-size: 12px;
+	cursor:hand;
+	background: url("../../../images/toolbar_ico_implement.png") no-repeat left;
+	display: none;
+}
+
+.titleTd>.btn>.stop {
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+	padding-left: 20px;
+	font-size: 12px;
+	cursor:hand;
+	background: url("../../../images/toolbar_ico_stop.png") no-repeat left;
+	display: none;
+}
+
+.titleTd>.btn>.save {
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+	padding-left: 20px;
+	font-size: 12px;
+	cursor:hand;
+	background: url("../../../images/toolbar_ico_save.png ") no-repeat left;
+}
+.titleTd>.btn>.separate {
+	color: #333333;
+	float: right;
+	width: 1px;
+	height: 30px;
+	background-color: #D3D6DA;
+	margin-top: 5px;
+	margin-right: 20px;
+}
+
+.titleTd>.btn>.return {
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+	padding-left: 20px;
+	font-size: 12px;
+	cursor:hand;
+	background: url("../../../images/toolbar_ico_back.png") no-repeat left;
+}
+
+.navigatorTd {
+	width: 240px;
+	border-right: 1px solid #D7D9DB;
+}
+
+.navigatorTd>.navigatorTitle {
+	height: 30px;
+	padding-bottom: 10px;
+	background-color: #F1F2F3;
+	border-bottom: 1px solid #D7D9DB;
+}
+
+.navigatorTd>.tip {
+	margin-top: 10px;
+	margin-left: 10px;
+	color: #999999;
+}
+
+.navigatorTd>.navigatorTitle>span {
+	height: 30px;
+	line-height: 40px;
+	margin-left: 10px;
+	color: #333333;
+}
+/* 工具栏 */
+.toolbtn {
+	height: 25px;
+	margin: 10px 10px 10px 10px;
+}
+
+.toolbtn>.node {
+	height: 25px;
+	width: 100px;
+	line-height: 25px;
+	float: left;
+	text-align: center;
+	margin-left: 1px;
+	border: 1px solid #D7D9DB;
+}
+
+.toolbtn>.node.selectable.active {
+	color: white;
+	background-color: #3874C7;
+}
+
+/* 拖动 选项 */
+.nav>.divTitle {
+	padding-left: 10px;
+	background: url("../../../images/btn_toolbar_filter.png") no-repeat left;
+	background-position: 5px 6px;
+}
+
+.nav>.divTitle>.message {
+	width: 30px;
+	height: 30px;
+	color: #2269b4; 
+	line-height: 30px;
+	font-weight: bold;
+}
+
+.nav>.divTitle>.line {
+	width: 170px;
+	height: 1px;
+	overflow: hidden;
+	background: #d3d3d3;
+	float: left;
+	margin-left: 40px;
+	margin-top: -15px;
+}
+
+.nav>.divTitle.selected {
+	background: url("../../../images/btn_toolbar_filter.png") no-repeat left;
+}
+
+.nav>.divTitle>.option>.node {
+	margin-left: 40px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 160px;
+	height: 25px;
+	line-height: 25px;
+	border: 2px solid #79B8F2;
+	color:  #6DACE9;
+	text-align: center;
+	font-weight: bold;
+}
+
+/* 右侧 面板 样式 */
+.containerTd {
+	background-color: #E2E3E5;
+}
+
+.containerTd>.graphDiv {
+	background-image: url(../../../images/ico_grid.png);
+	margin: 20px 20px 20px 20px;
+	border: 1px solid #DCDCDC;
+}
+
+/* 表输入 弹出框*/
+.tableDialog {
+	display: none;
+	overflow: hidden;
+	padding-top: 10px;
+	border: 1px solid #DCDCDC;
+}
+
+.tableDialog>.halving {
+	width: 100%;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	float: left;
+}
+
+.tableDialog>.tableDialogGrid {
+	width: 600px;
+	min-height: 225px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.tableDataDialog {
+	display: none;
+	overflow: hidden;
+}
+
+.tableDataDialog>.tableDataDialogGrid {
+	min-height: 355px;
+}
+
+/* 合并连接 弹出框*/
+.joinDialog{
+	display: none;
+	overflow: hidden;
+}
+.joinDialog>.step1Grid { 
+	width: 290px;
+	min-height: 265px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+.joinDialog>.step2Grid { 
+	width: 290px;
+	min-height: 265px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+/* 插入更新 弹出框*/
+.insertDialog {
+	display: none;
+	overflow: hidden;
+}
+
+.insertDialog>.allFieldsDiv {
+	float: left;
+	width: 100%;
+	font-size: 14px;
+	height: 280px;
+	text-decoration: none;
+	border: 1px solid #DCDCDC;
+}
+
+.insertDialog>.allFieldsDiv  A {
+	text-decoration: none;
+}
+
+.insertDialog>.allFieldsDiv> DIV {
+	width: 100%;
+	float: left;
+	height: 240px;
+	overflow: auto;
+}
+
+.addbtn {
+	width: 16px;
+	height: 16px;
+	background: url("../../../images/SC_item_add.png") no-repeat left;
+	float: right;
+	margin-top: 8px;
+	margin-right: 5px;
+}
+
+.addbtn:HOVER {
+	background: url("../../../images/SC_item_add_O.png");
+}
+
+.searchFieldsDivTitle,.updateFieldsDivTitle {
+	width: 100%;
+	height: 15px;
+	margin-top: 5px;
+}
+
+.fieldsTitle {
+	float: left;
+	margin-left:10px;
+	width: 200px;
+}
+
+.searchFieldsDiv,.updateFieldsDiv {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.fieldDiv {
+	width: 100%;
+	height: 30px;
+	margin-bottom: 24px;
+}
+
+.fieldDiv>.delbtn {
+	width: 16px;
+	height: 16px;
+	float: left;
+	margin-top: 4px;
+	margin-left: 10px;
+	background: url("../../../images/SC_item_del.png") no-repeat right;
+}
+
+.fieldDiv>.delbtn:HOVER {
+	background: url("../../../images/SC_item_del_O.png");
+}
+
+/** 执行情况 日志弹出框*/
+.myflow_log { 
+	position: absolute;
+	height: 40%;
+	bottom: 0px;
+	background-color:#FFFFFF;
+	border-top: 1px solid #DCDCDC;
+	display: none;
+}
+
+.myflow_log A {
+	text-decoration: none;
+	background-color: #F1F2F3;
+}
+
+.myflow_log>.tab-line-nav {
+	background-color: #F1F2F3;
+}
+
+.myflow_log>.tab-line-nav>.closebtn {
+	width: 16px;
+	height: 16px;
+	float: right;
+	margin: 10px 10px 1px 1px;
+	cursor:hand;
+	background: url("../../../images/btn_pal_close.png") no-repeat;
+}
+
+.myflow_log>.tab-line-nav>.closebtn:HOVER{
+	background: url("../../../images/btn_pal_close_O.png") no-repeat;
+}
+
+.myflow_log>.tab-content>.log {
+	padding: 0px 0px 0px 10px;
+	overflow: auto;
+	overflow-y: scroll;
+	font-size: 14px;
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Quartz任务调度 -->
+	<bean id="dataSourceQuartz" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.postgresql.Driver"/>
+		<property name="url" value="jdbc:postgresql://10.100.60.236:5432/dataAudit"/>
+		<property name="username" value="postgres"/>
+		<property name="password" value="postgres"/>
+	</bean>
+
+    <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    	 <property name="dataSource">  
+            <ref bean="dataSourceQuartz" />  
+        </property> 
+    	<property name="applicationContextSchedulerContextKey"  
+                    value="applicationContextKey" /> 
+         <property name="autoStartup" value="true" />
+        <property name="configLocation" value="classpath:quartz.properties"/>
+    </bean>	
+</beans>

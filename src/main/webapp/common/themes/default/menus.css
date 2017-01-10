@@ -1,0 +1,211 @@
+.menus {
+	width: 249px;
+	height: 100%;
+	border-right: 1px solid #DDD;
+	background-color: #F3F3F3;
+	position: absolute;
+	left: 0;
+	top: 0;
+	overflow: auto;
+}
+.menus .title {
+	line-height: 35px;
+	font-size: 16px;
+	font-weight: bold;
+	padding-left: 20px;
+	border-bottom: 1px solid #DCDCDC;
+	position: relative;
+}
+.menus .menu {
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	color: #555;
+	padding-left: 85px;
+	cursor: pointer;
+	background-position: 40px center;
+	background-repeat: no-repeat;
+	position: relative;
+}
+.menus .menu:HOVER,
+.menus .menu.hover {
+	background-color: #DCDCDC;
+}
+.menus .menu.selected {
+	font-weight: bold;
+	color: #FFF;
+	background-color: #50A5FF;
+}
+.menus .menu.baseinfo {
+	background-image: url("./images/submenu_ico_baseinfo.png");
+}
+.menus .menu.baseinfo.selected {
+	background-image: url("./images/submenu_ico_baseinfo_S.png");
+}
+.menus .menu.cases {
+	background-image: url("./images/submenu_ico_sys_dynamic.png");
+}
+.menus .menu.cases.selected {
+	background-image: url("./images/submenu_ico_sys_dynamic.png");
+}
+.menus .menu.resource {
+	background-image: url("./images/submenu_ico_resource.png");
+}
+.menus .menu.resource.selected {
+	background-image: url("./images/submenu_ico_resource_S.png");
+}
+.menus .menu.target {
+	background-image: url("./images/submenu_ico_target.png");
+}
+.menus .menu.target.selected {
+	background-image: url("./images/submenu_ico_target_S.png");
+}
+.menus .menu.suspect {
+	background-image: url("./images/submenu_ico_suspect.png");
+}
+.menus .menu.suspect.selected {
+	background-image: url("./images/submenu_ico_suspect_S.png");
+}
+.menus .menu.handle {
+	background-image: url("./images/submenu_ico_handle.png");
+}
+.menus .menu.handle.selected {
+	background-image: url("./images/submenu_ico_handle_S.png");
+}
+.menus .menu.relatecase {
+	background-image: url("./images/submenu_ico_relatecase.png");
+}
+.menus .menu.relatecase.selected {
+	background-image: url("./images/submenu_ico_relatecase_S.png");
+}
+.menus .menu.relatealarm {
+	background-image: url("./images/submenu_ico_relatealarm.png");
+}
+.menus .menu.relatealarm.selected {
+	background-image: url("./images/submenu_ico_relatealarm_S.png");
+}
+.menus .menu.relatesuspect {
+	background-image: url("./images/submenu_ico_relatesuspect.png");
+}
+.menus .menu.relatesuspect.selected {
+	background-image: url("./images/submenu_ico_relatesuspect_S.png");
+}
+.menus .menu.feature {
+	background-image: url("./images/submenu_ico_feature.png");
+}
+.menus .menu.feature.selected {
+	background-image: url("./images/submenu_ico_feature_S.png");
+}
+.menus .menu.criminal {
+	background-image: url("./images/submenu_ico_criminal.png");
+}
+.menus .menu.criminal.selected {
+	background-image: url("./images/submenu_ico_criminal_S.png");
+}
+.menus .menu.all {
+	background-image: url("./images/submenu_ico_all.png");
+}
+.menus .menu.all.selected {
+	background-image: url("./images/submenu_ico_all_S.png");
+}
+.menus .menu.image {
+	background-image: url("./images/submenu_ico_img.png");
+}
+.menus .menu.image.selected {
+	background-image: url("./images/submenu_ico_img_S.png");
+}
+.menus .menu.video {
+	background-image: url("./images/submenu_ico_video.png");
+}
+.menus .menu.video.selected {
+	background-image: url("./images/submenu_ico_video_S.png");
+}
+.menus .menu.other {
+	background-image: url("./images/submenu_ico_other.png");
+}
+.menus .menu.other.selected {
+	background-image: url("./images/submenu_ico_other_S.png");
+}
+.menus .menu.share {
+	background-image: url("./images/submenu_ico_share.png");
+}
+.menus .menu.share.selected {
+	background-image: url("./images/submenu_ico_share_S.png");
+}
+.menus .menu.private {
+	background-image: url("./images/submenu_ico_private.png");
+}
+.menus .menu.private.selected {
+	background-image: url("./images/submenu_ico_private_S.png");
+}
+
+.menus .menu.today {
+	background-image: url("./images/submenu_ico_mycase_today.png");
+}
+.menus .menu.yesterday {
+	background-image: url("./images/submenu_ico_mycase_yesterday.png");
+}
+.menus .menu.week {
+	background-image: url("./images/submenu_ico_mycase_week.png");
+}
+.menus .menu.month {
+	background-image: url("./images/submenu_ico_mycase_month.png");
+}
+.menus .menu.interested {
+	background-image: url("./images/submenu_ico_mycase_interested.png");
+}
+
+.menus .menu .count {
+	font-weight: bold;
+	line-height: 40px;
+	position: absolute;
+	right: 20px;
+	top: 0;
+}
+
+.menupanel {
+	height: 100%;
+	margin-left: 250px;
+	position: relative;
+	zoom: 1;
+}
+.menupanel .empty {
+	padding: 20px;
+}
+.menupanel .linkbar {
+	padding-left: 20px;
+	line-height: 27px;
+	background-color: #f8f8f8;
+	border-bottom: #E6E4E4 1px solid;
+}
+.menupanel .display {
+	height: 100%;
+	overflow: auto;
+	position: relative;
+}
+.menupanel .display .imageblocks {
+	margin: 0 20px;
+}
+.menupanel .targetbox {
+	height: 100%;
+}
+.menupanel .targetbox .leftPanel {
+	width: 264px;
+	height: 100%;
+	border-right: 1px solid #E6E4E4;
+	background-color: #FAFAFA;
+	zoom: 1;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.menupanel .targetbox .leftPanel .tabs {
+	margin: 0;
+	padding: 3px 24px 0;
+}
+.menupanel .targetbox .container {
+	height: 100%;
+	margin-left: 265px;
+	position: relative;
+	overflow: auto;
+}

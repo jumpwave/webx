@@ -1,0 +1,236 @@
+/**
+ * 界面基础CSS样式文件、在页面首先引入此样式文件、有助于对于全局样式进行控制
+ * @auther 丁杰
+ */
+
+html,body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	-webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+/* 基本文字颜色与背景色 */
+html,body,INPUT,SELECT,TEXTAREA {
+	color: #333;
+	background-color: #FFF;
+}
+/* 设置滚动条样式 */
+html,body,iframe {
+	/*滚动条的基本颜色*/
+	SCROLLBAR-BASE-COLOR: #F0F0F0;
+	/*三角箭头的颜色*/
+	SCROLLBAR-ARROW-COLOR: #606060;
+	/*滚动条空白部分的颜色*/
+	SCROLLBAR-HIGHLIGHT-COLOR: #F0F0F0;
+	/*立体滚动条的颜色*/
+	SCROLLBAR-FACE-COLOR: #CDCDCD;
+	/*立体滚动条亮边的颜色*/
+	SCROLLBAR-3DLIGHT-COLOR: #C0C0C0;
+	/*立体滚动条阴影的颜色*/
+	SCROLLBAR-SHADOW-COLOR: #F0F0F0;
+	/*立体滚动条强阴影的颜色*/
+	SCROLLBAR-DARKSHADOW-COLOR: #C0C0C0;
+	/*立体滚动条背景颜色*/
+	SCROLLBAR-TRACK-COLOR: #F0F0F0;
+}
+/* 清除内外边距 **/
+html,body,iframe,div,h1,h2,h3,h4,h5,h6,hr,p,span,blockquote, /* structural elements 结构元素 */
+	dl,dt,dd,ul,ol,li, /* list elements 列表元素 */ pre,	/* text formatting elements 文本格式元素 */ 
+	form,fieldset,legend,button,input,textarea,	/* form elements 表单元素 */ 
+	th,td, /* table elements 表格元素 */ img	/* img elements 图片元素 */ {
+	margin: 0;
+	padding: 0;
+}
+/* 设置默认字体 */
+html,
+body,
+button,
+input,
+select,
+textarea{
+	font: 12px/1.5 宋体, Arial, Verdana, Helvetica, sans-serif;
+}
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe{
+	display: block;
+}
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+blockquote,q {
+	quotes: none;
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+	content: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100%;
+}
+
+em {
+	font-style: normal;
+}
+
+/* 重置列表元素 */
+ul,ol {
+	list-style: none;
+}
+
+/* 重置表格元素 */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* IE bug fixed: th 不继承 text-align*/
+th{
+	text-align: inherit;
+}
+/* 对齐是排版最重要的因素, 默认左对齐 */
+caption,
+th {
+	text-align: left;
+}
+
+/* 文本省略显示样式 */
+.ellipsis{overflow:hidden;white-space:nowrap !important;-o-text-overflow:ellipsis;text-overflow:ellipsis;}
+/* 文本强制换行样式 */
+.wordwrap{word-break:break-all;word-wrap:break-word;}
+/* 浮动后，清除样式，用于布局处理 */
+.clear{float:none;clear:both;}
+/* 清除浮动，用于浮动对象容器 */
+.clearfix{*zoom:1;}
+.clearfix:before,
+.clearfix:after{display:table;content:" ";}
+.clearfix:after{clear:both;}
+/* 标签隐藏样式 */
+.hidden{display:none;}
+/* 设置鼠标样式为手型 */
+.pointer{cursor:pointer;}
+
+/* 设置超链接各状态样式 
+A{color:#217FE2;text-decoration:none;cursor:pointer;}
+A:LINK{color:#217FE2;}
+A:VISITED{color:#217FE2;}
+A:ACTIVE{color:#217FE2;}
+A:HOVER,A.hover{color:#FF9900;}*/
+
+/* 输入框对象 */
+INPUT.text {
+	width: 178px;
+	height: 24px;
+	line-height: 24px;
+	padding: 0 10px;
+	border: 1px solid #BCBCBC;
+}
+INPUT.checkbox,
+INPUT.radio {
+	cursor: pointer;
+}
+SELECT {
+	width: 198px;
+	height: 26px;
+	line-height: 26px;
+	border: 1px solid #BCBCBC;
+	cursor: pointer;
+	font-size: 14px;
+}
+TEXTAREA {
+	width: 178px;
+	height: 66px;
+	line-height: 24px;
+	padding: 0 10px;
+	border: 1px solid #BCBCBC;
+}
+INPUT.text:FOCUS,
+INPUT.text.focus,
+SELECT:FOCUS
+SELECT.focus,
+TEXTAREA:FOCUS,
+TEXTAREA.focus {
+	border-color: #217FE2;
+}
+
+INPUT.text.disabled,
+SELECT.disabled,
+TEXTAREA.disabled,
+INPUT.text[disabled],
+SELECT[disabled],
+TEXTAREA[disabled] {
+	color: #999;
+	background-color: #F0F0F0;
+	cursor: no-allow;
+}
+
+/* 按钮对象 */
+BUTTON {
+	width: 95px;
+	height: 31px;
+	line-height: 29px;
+	font-size: 14px;
+	color: #FFF;
+	border: 1px solid #1D7BDF;
+	border-bottom: 2px solid #125E8B;
+	background-color: #1D7BDF;
+	cursor: pointer;
+}
+BUTTON:HOVER,
+BUTTON.hover {
+	opacity: .75;
+	filter: Alpha(Opacity=75);
+}
+/* 完成/提交/保存 */
+BUTTON.save {
+	border-color: #51A551;
+	background-color: #51A551;
+	border-bottom-color: #387038;
+}
+/* 重置/清除 */
+BUTTON.reset {
+	border-color: #D94C3A;
+	border-bottom-color: #701C18;
+	background-color: #D94C3A;
+}
+/* 返回/上一步 */
+BUTTON.back {
+	border-color: #70BAE5;
+	background-color: #70BAE5;
+	border-bottom-color: #337BA2;
+}
+/* 确认 */
+BUTTON.sure {
+	border-color: #64ADFF;
+	background-color: #64ADFF;
+	border-bottom-color: #497FBB;
+}
+/* 取消 */
+BUTTON.cancel {
+	color: #2A2A2A;
+	border-color: #D9D9D9;
+	background-color: #D9D9D9;
+	border-bottom-color: #9F9F9F;
+}
+/* 不可用 */
+BUTTON.disabled {
+	color: #BBB;
+	cursor: default;
+	border-color: #EEE;
+	background-color: #EEE;
+	border-bottom-color: #B8B8B8;
+}
+
+BUTTON.generate{
+	width: 45px;
+	height: 25px;
+	line-height: 20px;
+	border-color: #3C6FBB;
+	background-color:#3C6FBB;
+}

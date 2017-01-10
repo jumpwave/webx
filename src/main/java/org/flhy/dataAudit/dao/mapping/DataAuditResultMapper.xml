@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.flhy.dataAudit.dao.DataAuditResultMapper">
+
+	<resultMap type="DataAuditResult" id="DataAuditResultResultMap">
+		<id property="result_id" column="result_id"/>
+		<result property="task_id" column="task_id"/>
+		<result property="begin_time" column="begin_time"/>
+		<result property="end_time" column="end_time"/>
+		<result property="has_exception" column="has_exception"/>
+		<result property="exception_headers" column="exception_headers"/>
+		<result property="exceptions" column="exceptions"/>
+		<result property="audit_script" column="audit_script"/>
+	</resultMap>
+
+	<select id="getDataAuditResult" resultType="DataAuditResult" resultMap="DataAuditResultResultMap">
+		<![CDATA[
+			select * from data_audit_result t where t.result_id = #{result_id}
+		]]> 
+	</select>
+
+	<select id="findDataAuditResult" resultType="DataAuditResult" resultMap="DataAuditResultResultMap">
+			select * from data_audit_result t where 1=1 	
+			<if test="has_exception !=null and has_exception != '' ">  
+				and t.has_exception = #{has_exception,jdbcType=VARCHAR}
+			</if>
+			order by end_time desc			
+	</select>	
+		
+	<select id="pageDataAuditResult" resultType="DataAuditResult" resultMap="DataAuditResultResultMap">
+			select * from data_audit_result t where 1=1 	
+			<if test="dataAuditResult.has_exception !=null and dataAuditResult.has_exception != '' ">  
+				and t.has_exception = #{dataAuditResult.has_exception}
+			</if>
+			<if test="timeMin !=null and timeMin != '' ">  
+				<![CDATA[ and t.begin_time >= #{timeMin} ]]> 
+			</if>	
+			<if test="timeMax !=null and timeMax != '' ">  
+				<![CDATA[ and t.begin_time <= #{timeMax} ]]> 
+			</if>					
+			order by end_time desc			
+	</select>	
+		
+	<insert id="insertDataAuditResult" parameterType="DataAuditResult">
+		insert into data_audit_result values(
+			#{result_id, jdbcType=VARCHAR},
+			#{task_id, jdbcType=VARCHAR},
+			#{begin_time, jdbcType=VARCHAR},
+			#{end_time, jdbcType=VARCHAR},
+			#{has_exception, jdbcType=VARCHAR},
+			#{exception_headers, jdbcType=VARCHAR},
+			#{exceptions, jdbcType=VARCHAR},
+			#{audit_script, jdbcType=VARCHAR}			
+		)
+	</insert>
+	
+	<update  id="updateDataAuditResult" parameterType="DataAuditResult">
+		update data_audit_result set	
+			task_id = #{task_id, jdbcType=VARCHAR},
+			begin_time = #{begin_time, jdbcType=VARCHAR},
+			end_time = #{end_time, jdbcType=VARCHAR},
+			has_exception = #{has_exception, jdbcType=VARCHAR},
+			exception_headers = #{exception_headers, jdbcType=VARCHAR},
+			exceptions = #{exceptions, jdbcType=VARCHAR},
+			audit_script = #{audit_script, jdbcType=VARCHAR}	
+			where result_id = #{result_id}	 
+	</update>
+	
+	<delete id="delete">
+		delete from data_audit_result t  
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			    and t.task_id in 
+			    <foreach collection="list" item="taskIds" index="index" open="(" separator="," close=")">#{taskIds}</foreach>	
+		</trim>
+	</delete>
+	
+</mapper>

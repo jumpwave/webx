@@ -1,0 +1,208 @@
+@CHARSET "UTF-8";
+/* 主浏览界面样式 */
+.dataCollectContainer {
+	width: 100%;
+}
+
+.dataCollectContainer>table {
+	width: 100%;
+	border: 0px;
+}
+
+.dataCollectContainer>table tr {
+	width: 100%;
+}
+
+.dataCollectContainer>table td {
+	vertical-align: top;
+}
+
+.titleTd {
+	height: 40px;
+	border-bottom: 1px solid #CCCFD4;
+}
+
+.titleTd>.desc {
+	float: left;
+	line-height: 40px;
+	margin-left: 10px;
+}
+
+.titleTd>.btn {
+	float: right;
+	line-height: 20px;
+}
+
+.titleTd>.btn>.run {
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+	padding-left: 20px;
+	font-size: 12px;
+	cursor:hand;
+	background: url("../images/toolbar_ico_implement.png") no-repeat left;
+	display: none;
+}
+
+.titleTd>.btn>.queryJob {
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+	padding-left: 20px;
+	font-size: 12px;
+	cursor:hand;
+	background: url("../images/toolbar_ico_frame.png") no-repeat left;
+}
+
+.titleTd>.btn>.stop {
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+	padding-left: 20px;
+	font-size: 12px;
+	cursor:hand;
+	background: url("../images/toolbar_ico_stop.png") no-repeat left;
+	display: none;
+}
+
+.titleTd>.btn>.design {
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+	padding-left: 20px;
+	font-size: 12px;
+	cursor:hand;
+	background: url("../images/toolbar_ico_design.png") no-repeat left;
+	display: none;
+}
+
+.navigatorTd {
+	width: 240px;
+	border-right: 1px solid #D7D9DB;
+}
+
+.navigatorTd>.navigatorTitle {
+	height: 30px;
+	padding-bottom: 10px;
+	background-color: #F1F2F3;
+	border-bottom: 1px solid #D7D9DB;
+}
+
+.navigatorTd>.navigatorTitle>span {
+	height: 30px;
+	line-height: 40px;
+	margin-left: 10px;
+	color: #333333;
+}
+
+.navigatorTd>.nav {
+	vertical-align: top;
+	bottom: 0px;
+}
+
+.navigatorTd>.nav>.divTitle {
+	height: 30px;
+	padding-top: 5px;
+	padding-left: 10px;
+	background-position: 5px 10px;
+	color: #2269B4;
+}
+
+.navigatorTd>.nav>.divTitle>.message {
+	line-height: 30px;
+	font-weight: bold;
+	padding-left: 20px;
+	background: url("../images/SC_item_show.png") no-repeat left;
+	cursor:hand;
+}
+
+.navigatorTd>.nav>.divTitle>.message:HOVER {
+	background: url("../images/SC_item_show_O.png") no-repeat left;
+}
+
+.navigatorTd>.nav>.divTitle>.message.hide {
+	background: url("../images/SC_item_hide.png") no-repeat left;
+}
+.navigatorTd>.nav>.divTitle>.message.hide:HOVER {
+	background: url("../images/SC_item_hide_O.png") no-repeat left;
+}
+
+.navigatorTd>.nav>.divTitle>.line {
+	height: 1px;
+	overflow: hidden;
+	background: #D7D9DB;
+	margin-left: 55px;
+	margin-right: 40px;
+	margin-top: -15px;
+}
+
+.navigatorTd>.nav>.divTitle>.btn {
+	margin-right: 10px;
+	margin-top: -8px;
+	float: right;
+	width: 16px;
+	height: 16px;
+	cursor:hand;
+	background: url("../images/SC_item_add.png") no-repeat left;
+}
+
+.navigatorTd>.nav>.divTitle>.btn:HOVER {
+	background: url("../images/SC_item_add_O.png") no-repeat left;
+}
+
+.navigatorTd>.nav>.option {
+}
+
+.navigatorTd>.nav>.option>.tip {
+	margin-top: 10px;
+	margin-bottom: 1px;
+	margin-left: 10px;
+	color: #999999;
+}
+
+.navigatorTd>.nav>.option>.menu {
+	margin-bottom: 1px;
+	height: 30px;
+	margin-left: 10px;
+	margin-right: 10px;
+	cursor:hand;
+}
+
+.navigatorTd>.nav>.option>.menu:HOVER {
+	background-color: #D8EAFF;
+}
+
+.navigatorTd>.nav>.option>.menu.active {
+	background-color: #FFE6B0;
+}
+
+.navigatorTd>.nav>.option>.menu>div.title {
+	height: 30px;
+	float: left;
+	text-align: left;
+	line-height: 30px;
+	padding-left: 10px;
+}
+
+.navigatorTd>.nav>.option>.menu>div.delbtn {
+	width: 16px;
+	height: 16px;
+	float: right;
+	margin-top: 8px;
+	padding-right: 10px;
+	cursor:hand;
+	background: url("../images/SC_item_del.png") no-repeat;
+}
+
+.navigatorTd>.nav>.option>.menu.active>div.delbtn {
+	background: url("../images/SC_item_del_O.png") no-repeat;
+}
+
+/* 右侧样式 */
+.containerTd {
+	
+}
+
+.containerTd>.container {
+	background-color: #E2E3E5;
+}

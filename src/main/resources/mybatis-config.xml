@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!-- 	<settings>
+		<setting name="logImpl" value="LOG4J" />
+	</settings>  -->
+
+	<typeAliases>
+		<typeAlias alias="DataAuditTask" type="org.flhy.dataAudit.domain.DataAuditTask"/>
+		<typeAlias alias="DataAuditResult" type="org.flhy.dataAudit.domain.DataAuditResult"/>
+		<typeAlias alias="DataAuditScriptParam" type="org.flhy.dataAudit.domain.DataAuditScriptParam"/>
+	</typeAliases>
+	
+	<!-- 
+	    plugins在配置文件中的位置必须符合要求，否则会报错，顺序如下:
+	    properties?, settings?, 
+	    typeAliases?, typeHandlers?, 
+	    objectFactory?,objectWrapperFactory?, 
+	    plugins?, 
+	    environments?, databaseIdProvider?, mappers?
+	-->
+ 	<plugins>
+	    <plugin interceptor="com.github.pagehelper.PageInterceptor">
+        <!-- 使用下面的方式配置参数，后面会有所有的参数介绍 -->
+        <property name="supportMethodsArguments" value="true"/>
+        <property name="params" value="pageNum=pageNum;pageSize=pageSize;"/>
+	    </plugin>
+	</plugins>
+	
+    <mappers>
+		<mapper resource="org/flhy/dataAudit/dao/mapping/DataAuditTaskMapper.xml" />
+		<mapper resource="org/flhy/dataAudit/dao/mapping/DataAuditResultMapper.xml" />
+		<mapper resource="org/flhy/dataAudit/dao/mapping/DataAuditScriptParamMapper.xml" />
+		
+	</mappers>
+</configuration>	

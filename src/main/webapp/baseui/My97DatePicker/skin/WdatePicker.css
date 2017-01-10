@@ -1,0 +1,14 @@
+.Wdate {
+    background: #FFF url(datePicker.gif) no-repeat right;
+    cursor: pointer;
+}
+
+.Wdate:HOVER {
+    background-image: url(datePicker_hover.gif);
+}
+.Wdate::-ms-clear{display:none;}
+
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}

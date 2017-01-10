@@ -1,0 +1,1165 @@
+
+CREATE TABLE govern_trans_job
+(
+  g_name character varying(64) NOT NULL,
+  g_type character varying(32),
+  graphJson text,
+  CONSTRAINT govern_trans_job_pkey PRIMARY KEY (g_name )
+);
+-- Repository creation/upgrade DDL: 
+--
+-- Nothing was created nor modified in the target repository database.
+-- Hit the OK button to execute the generated SQL or Close to reject the changes.
+-- Please note that it is possible to change/edit the generated SQL before execution.
+--
+CREATE TABLE R_REPOSITORY_LOG
+(
+  ID_REPOSITORY_LOG BIGSERIAL
+, REP_VERSION VARCHAR(255)
+, LOG_DATE TIMESTAMP
+, LOG_USER VARCHAR(255)
+, OPERATION_DESC VARCHAR(2000000)
+)
+;
+
+CREATE TABLE R_VERSION
+(
+  ID_VERSION BIGSERIAL
+, MAJOR_VERSION SMALLINT
+, MINOR_VERSION SMALLINT
+, UPGRADE_DATE TIMESTAMP
+, IS_UPGRADE BOOLEAN
+)
+;
+
+INSERT INTO R_VERSION(ID_VERSION, MAJOR_VERSION, MINOR_VERSION, UPGRADE_DATE, IS_UPGRADE) VALUES (1,5,0,'2016/10/12 11:03:23.792',E'N');
+
+CREATE TABLE R_DATABASE_TYPE
+(
+  ID_DATABASE_TYPE BIGSERIAL
+, CODE VARCHAR(255)
+, DESCRIPTION VARCHAR(255)
+)
+;
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (1,E'ORACLERDB',E'Oracle RDB');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (2,E'INFINIDB',E'Calpont InfiniDB');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (3,E'INFOBRIGHT',E'Infobright');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (4,E'GENERIC',E'Generic database');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (5,E'AS/400',E'AS/400');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (6,E'SYBASEIQ',E'SybaseIQ');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (7,E'SQLITE',E'SQLite');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (8,E'DERBY',E'Apache Derby');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (9,E'INFORMIX',E'Informix');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (10,E'INGRES',E'Ingres');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (11,E'REMEDY-AR-SYSTEM',E'Remedy Action Request System');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (12,E'POSTGRESQL',E'PostgreSQL');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (13,E'SAPR3',E'SAP ERP System');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (14,E'REDSHIFT',E'Redshift');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (15,E'CACHE',E'Intersystems Cache');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (16,E'MSSQL',E'MS SQL Server');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (17,E'TERADATA',E'Teradata');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (18,E'DB2',E'IBM DB2');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (19,E'SQLBASE',E'Gupta SQL Base');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (20,E'MYSQL',E'MySQL');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (21,E'FIREBIRD',E'Firebird SQL');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (22,E'HYPERSONIC',E'Hypersonic');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (23,E'KINGBASEES',E'KingbaseES');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (24,E'MSACCESS',E'MS Access');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (25,E'INTERBASE',E'Borland Interbase');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (26,E'VERTICA5',E'Vertica 5+');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (27,E'MSSQLNATIVE',E'MS SQL Server (Native)');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (28,E'EXASOL4',E'Exasol 4');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (29,E'EXTENDB',E'ExtenDB');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (30,E'UNIVERSE',E'UniVerse database');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (31,E'NEOVIEW',E'Neoview');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (32,E'LucidDB',E'LucidDB');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (33,E'SAPDB',E'MaxDB (SAP DB)');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (34,E'VERTICA',E'Vertica');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (35,E'H2',E'H2');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (36,E'DBASE',E'dBase III, IV or 5');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (37,E'VECTORWISE',E'Ingres VectorWise');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (38,E'SYBASE',E'Sybase');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (39,E'ORACLE',E'Oracle');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (40,E'MONDRIAN',E'Native Mondrian');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (41,E'NETEZZA',E'Netezza');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (42,E'GREENPLUM',E'Greenplum');
+
+INSERT INTO R_DATABASE_TYPE(ID_DATABASE_TYPE, CODE, DESCRIPTION) VALUES (43,E'MONETDB',E'MonetDB');
+
+CREATE TABLE R_DATABASE_CONTYPE
+(
+  ID_DATABASE_CONTYPE BIGSERIAL
+, CODE VARCHAR(255)
+, DESCRIPTION VARCHAR(255)
+)
+;
+
+INSERT INTO R_DATABASE_CONTYPE(ID_DATABASE_CONTYPE, CODE, DESCRIPTION) VALUES (1,E'Native',E'Native (JDBC)');
+
+INSERT INTO R_DATABASE_CONTYPE(ID_DATABASE_CONTYPE, CODE, DESCRIPTION) VALUES (2,E'ODBC',E'ODBC');
+
+INSERT INTO R_DATABASE_CONTYPE(ID_DATABASE_CONTYPE, CODE, DESCRIPTION) VALUES (3,E'OCI',E'OCI');
+
+INSERT INTO R_DATABASE_CONTYPE(ID_DATABASE_CONTYPE, CODE, DESCRIPTION) VALUES (4,E'Plugin',E'Plugin specific access method');
+
+INSERT INTO R_DATABASE_CONTYPE(ID_DATABASE_CONTYPE, CODE, DESCRIPTION) VALUES (5,E'JNDI',E'JNDI');
+
+INSERT INTO R_DATABASE_CONTYPE(ID_DATABASE_CONTYPE, CODE, DESCRIPTION) VALUES (6,E',',E'Custom');
+
+CREATE TABLE R_NOTE
+(
+  ID_NOTE BIGSERIAL
+, VALUE_STR VARCHAR(2000000)
+, GUI_LOCATION_X INTEGER
+, GUI_LOCATION_Y INTEGER
+, GUI_LOCATION_WIDTH INTEGER
+, GUI_LOCATION_HEIGHT INTEGER
+, FONT_NAME VARCHAR(2000000)
+, FONT_SIZE INTEGER
+, FONT_BOLD BOOLEAN
+, FONT_ITALIC BOOLEAN
+, FONT_COLOR_RED INTEGER
+, FONT_COLOR_GREEN INTEGER
+, FONT_COLOR_BLUE INTEGER
+, FONT_BACK_GROUND_COLOR_RED INTEGER
+, FONT_BACK_GROUND_COLOR_GREEN INTEGER
+, FONT_BACK_GROUND_COLOR_BLUE INTEGER
+, FONT_BORDER_COLOR_RED INTEGER
+, FONT_BORDER_COLOR_GREEN INTEGER
+, FONT_BORDER_COLOR_BLUE INTEGER
+, DRAW_SHADOW BOOLEAN
+)
+;
+
+CREATE TABLE R_DATABASE
+(
+  ID_DATABASE BIGSERIAL
+, "name" VARCHAR(255)
+, ID_DATABASE_TYPE INTEGER
+, ID_DATABASE_CONTYPE INTEGER
+, HOST_NAME VARCHAR(255)
+, DATABASE_NAME VARCHAR(2000000)
+, PORT INTEGER
+, USERNAME VARCHAR(255)
+, "password" VARCHAR(255)
+, SERVERNAME VARCHAR(255)
+, DATA_TBS VARCHAR(255)
+, INDEX_TBS VARCHAR(255)
+)
+;
+
+CREATE TABLE R_DATABASE_ATTRIBUTE
+(
+  ID_DATABASE_ATTRIBUTE BIGSERIAL
+, ID_DATABASE INTEGER
+, CODE VARCHAR(255)
+, VALUE_STR VARCHAR(2000000)
+)
+;
+
+CREATE UNIQUE INDEX IDX_RDAT ON R_DATABASE_ATTRIBUTE(ID_DATABASE, CODE)
+;
+
+CREATE TABLE R_DIRECTORY
+(
+  ID_DIRECTORY BIGSERIAL
+, ID_DIRECTORY_PARENT INTEGER
+, DIRECTORY_NAME VARCHAR(255)
+)
+;
+
+CREATE UNIQUE INDEX IDX_RDIR ON R_DIRECTORY(ID_DIRECTORY_PARENT, DIRECTORY_NAME)
+;
+
+CREATE TABLE R_TRANSFORMATION
+(
+  ID_TRANSFORMATION BIGSERIAL
+, ID_DIRECTORY INTEGER
+, "name" VARCHAR(255)
+, DESCRIPTION VARCHAR(2000000)
+, EXTENDED_DESCRIPTION VARCHAR(2000000)
+, TRANS_VERSION VARCHAR(255)
+, TRANS_STATUS INTEGER
+, ID_STEP_READ INTEGER
+, ID_STEP_WRITE INTEGER
+, ID_STEP_INPUT INTEGER
+, ID_STEP_OUTPUT INTEGER
+, ID_STEP_UPDATE INTEGER
+, ID_DATABASE_LOG INTEGER
+, TABLE_NAME_LOG VARCHAR(255)
+, USE_BATCHID BOOLEAN
+, USE_LOGFIELD BOOLEAN
+, ID_DATABASE_MAXDATE INTEGER
+, TABLE_NAME_MAXDATE VARCHAR(255)
+, FIELD_NAME_MAXDATE VARCHAR(255)
+, OFFSET_MAXDATE NUMERIC(14, 2)
+, DIFF_MAXDATE NUMERIC(14, 2)
+, CREATED_USER VARCHAR(255)
+, CREATED_DATE TIMESTAMP
+, MODIFIED_USER VARCHAR(255)
+, MODIFIED_DATE TIMESTAMP
+, SIZE_ROWSET INTEGER
+)
+;
+
+CREATE TABLE R_TRANS_ATTRIBUTE
+(
+  ID_TRANS_ATTRIBUTE BIGSERIAL
+, ID_TRANSFORMATION INTEGER
+, NR INTEGER
+, CODE VARCHAR(255)
+, VALUE_NUM BIGINT
+, VALUE_STR VARCHAR(2000000)
+)
+;
+
+CREATE UNIQUE INDEX IDX_TATT ON R_TRANS_ATTRIBUTE(ID_TRANSFORMATION, CODE, NR)
+;
+
+CREATE TABLE R_JOB_ATTRIBUTE
+(
+  ID_JOB_ATTRIBUTE BIGSERIAL
+, ID_JOB INTEGER
+, NR INTEGER
+, CODE VARCHAR(255)
+, VALUE_NUM BIGINT
+, VALUE_STR VARCHAR(2000000)
+)
+;
+
+CREATE UNIQUE INDEX IDX_JATT ON R_JOB_ATTRIBUTE(ID_JOB, CODE, NR)
+;
+
+CREATE TABLE R_DEPENDENCY
+(
+  ID_DEPENDENCY BIGSERIAL
+, ID_TRANSFORMATION INTEGER
+, ID_DATABASE INTEGER
+, "table_name" VARCHAR(255)
+, FIELD_NAME VARCHAR(255)
+)
+;
+
+CREATE TABLE R_PARTITION_SCHEMA
+(
+  ID_PARTITION_SCHEMA BIGSERIAL
+, "name" VARCHAR(255)
+, DYNAMIC_DEFINITION BOOLEAN
+, PARTITIONS_PER_SLAVE VARCHAR(255)
+)
+;
+
+CREATE TABLE R_PARTITION
+(
+  ID_PARTITION BIGSERIAL
+, ID_PARTITION_SCHEMA INTEGER
+, PARTITION_ID VARCHAR(255)
+)
+;
+
+CREATE TABLE R_TRANS_PARTITION_SCHEMA
+(
+  ID_TRANS_PARTITION_SCHEMA BIGSERIAL
+, ID_TRANSFORMATION INTEGER
+, ID_PARTITION_SCHEMA INTEGER
+)
+;
+
+CREATE TABLE R_CLUSTER
+(
+  ID_CLUSTER BIGSERIAL
+, "name" VARCHAR(255)
+, BASE_PORT VARCHAR(255)
+, SOCKETS_BUFFER_SIZE VARCHAR(255)
+, SOCKETS_FLUSH_INTERVAL VARCHAR(255)
+, SOCKETS_COMPRESSED BOOLEAN
+, DYNAMIC_CLUSTER BOOLEAN
+)
+;
+
+CREATE TABLE R_SLAVE
+(
+  ID_SLAVE BIGSERIAL
+, "name" VARCHAR(255)
+, HOST_NAME VARCHAR(255)
+, PORT VARCHAR(255)
+, WEB_APP_NAME VARCHAR(255)
+, USERNAME VARCHAR(255)
+, "password" VARCHAR(255)
+, PROXY_HOST_NAME VARCHAR(255)
+, PROXY_PORT VARCHAR(255)
+, NON_PROXY_HOSTS VARCHAR(255)
+, MASTER BOOLEAN
+)
+;
+
+CREATE TABLE R_CLUSTER_SLAVE
+(
+  ID_CLUSTER_SLAVE BIGSERIAL
+, ID_CLUSTER INTEGER
+, ID_SLAVE INTEGER
+)
+;
+
+CREATE TABLE R_TRANS_SLAVE
+(
+  ID_TRANS_SLAVE BIGSERIAL
+, ID_TRANSFORMATION INTEGER
+, ID_SLAVE INTEGER
+)
+;
+
+CREATE TABLE R_TRANS_CLUSTER
+(
+  ID_TRANS_CLUSTER BIGSERIAL
+, ID_TRANSFORMATION INTEGER
+, ID_CLUSTER INTEGER
+)
+;
+
+CREATE TABLE R_TRANS_HOP
+(
+  ID_TRANS_HOP BIGSERIAL
+, ID_TRANSFORMATION INTEGER
+, ID_STEP_FROM INTEGER
+, ID_STEP_TO INTEGER
+, ENABLED BOOLEAN
+)
+;
+
+CREATE TABLE R_TRANS_STEP_CONDITION
+(
+  ID_TRANSFORMATION INTEGER
+, ID_STEP INTEGER
+, ID_CONDITION INTEGER
+)
+;
+
+CREATE TABLE R_CONDITION
+(
+  ID_CONDITION BIGSERIAL
+, ID_CONDITION_PARENT INTEGER
+, NEGATED BOOLEAN
+, "operator" VARCHAR(255)
+, LEFT_NAME VARCHAR(255)
+, CONDITION_FUNCTION VARCHAR(255)
+, RIGHT_NAME VARCHAR(255)
+, ID_VALUE_RIGHT INTEGER
+)
+;
+
+CREATE TABLE R_VALUE
+(
+  ID_VALUE BIGSERIAL
+, "name" VARCHAR(255)
+, VALUE_TYPE VARCHAR(255)
+, VALUE_STR VARCHAR(255)
+, IS_NULL BOOLEAN
+)
+;
+
+CREATE TABLE R_STEP_TYPE
+(
+  ID_STEP_TYPE BIGSERIAL
+, CODE VARCHAR(255)
+, DESCRIPTION VARCHAR(255)
+, HELPTEXT VARCHAR(255)
+)
+;
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (1,E'GetSlaveSequence',E'Get ID from slave server',E'Retrieves unique IDs in blocks from a slave server.  The referenced sequence needs to be configured on the slave server in the XML configuration file.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (2,E'GetRepositoryNames',E'获取资源库配置',E'Lists detailed information about transformations and/or jobs in a repository');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (3,E'MappingInput',E'映射输入规范',E'指定一个映射的字段输入');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (4,E'Denormaliser',E'列转行',E'Denormalises rows by looking up key-value pairs and by assigning them to new fields in the输出 rows.{0}This method aggregates and needs the输入 rows to be sorted on the grouping fields');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (5,E'SystemInfo',E'获取系统信息',E'获取系统信息，例如时间、日期.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (6,E'XMLJoin',E'XML 连接',E'Joins a stream of XML-Tags into a target XML string');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (7,E'Dummy',E'空操作 (什么也不做)',E'这个步骤类型什么都不作.{0} 当你想测试或拆分数据流的时候有用.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (8,E'ZipFile',E'Zip 文件',E'Zip a file.\nFilename will be extracted from incoming stream.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (9,E'SecretKeyGenerator',E'生成密钥',E'Generate secret key for algorithms such as DES, AES, TripleDES.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (10,E'SetValueField',E'设置字段值',E'Set value of a field with another value field');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (11,E'SASInput',E'SAS 输入',E'This step reads files in sas7bdat (SAS) native format');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (12,E'Delay',E'延迟行',E'Output each input row after a delay');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (13,E'UserDefinedJavaClass',E'Java 代码',E'This step allows you to program a step using Java code');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (14,E'RssInput',E'RSS 输入',E'Read RSS feeds');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (15,E'SQLFileOutput',E'SQL 文件输出',E'Output SQL INSERT statements to file');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (16,E'DetectLastRow',E'识别流的最后一行',E'Last row will be marked');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (17,E'OldTextFileInput',E'Old Text file input',E'从一个文本文件（几种格式）里读取数据{0}这些数据可以被传递到下一个步骤里...');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (18,E'MergeJoin',E'记录集连接',E'Joins two streams on a given key and outputs a joined set. The input streams must be sorted on the join key');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (19,E'ExecSQLRow',E'执行SQL脚本(字段流替换)',E'Execute SQL script extracted from a field\ncreated in a previous step.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (20,E'SetValueConstant',E'将字段值设置为常量',E'Set value of a field to a constant');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (21,E'TableExists',E'检查表是否存在',E'Check if a table exists on a specified connection');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (22,E'PGBulkLoader',E'PostgreSQL 批量加载',E'PostgreSQL Bulk Loader');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (23,E'GetFileNames',E'获取文件名',E'Get file names from the operating system and send them to the next step.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (24,E'SocketWriter',E'Socket 写',E'Socket writer.  A socket server that can send rows of data to a socket reader.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (25,E'OlapInput',E'OLAP 输入',E'Execute and retrieve data using an MDX query against any XML/A OLAP datasource using olap4j');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (26,E'CreditCardValidator',E'检验信用卡号码是否有效',E'The Credit card validator step will help you tell:\n(1) if a credit card number is valid (uses LUHN10 (MOD-10) algorithm)\n(2) which credit card vendor handles that number\n(VISA, MasterCard, Diners Club, EnRoute, American Express (AMEX),...)');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (27,E'InsertUpdate',E'插入 / 更新',E'基于关键字更新或插入记录到数据库.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (28,E'Injector',E'记录注射',E'Injector step to allow to inject rows into the transformation through the java API');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (29,E'AutoDoc',E'自动文档输出',E'This step automatically generates documentation based on input in the form of a list of transformations and jobs');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (30,E'MailValidator',E'检验邮件地址',E'Check if an email address is valid.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (31,E'SingleThreader',E'Single Threader',E'Executes a transformation snippet in a single thread.  You need a standard mapping or a transformation with an Injector step where data from the parent transformation will arive in blocks.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (32,E'TransExecutor',E'Transformation Executor',E'This step executes a Pentaho Data Integration transformation, sets parameters and passes rows.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (33,E'PropertyOutput',E'配置文件输出',E'Write data to properties file');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (34,E'Calculator',E'计算器',E'通过执行简单的计算创建一个新字段');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (35,E'JavaFilter',E'根据Java代码过滤记录',E'Filter rows using java code');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (36,E'UniqueRowsByHashSet',E'唯一行 (哈希值)',E'Remove double rows and leave only unique occurrences by using a HashSet.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (37,E'CheckSum',E'增加校验列',E'Add a checksum column for each input row');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (38,E'TypeExitEdi2XmlStep',E'Edi to XML',E'Converts Edi text to generic XML');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (39,E'FilesFromResult',E'从结果获取文件',E'This step allows you to read filenames used or generated in a previous entry in a job.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (40,E'OraBulkLoader',E'Oracle 批量加载',E'Use Oracle Bulk Loader to load data');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (41,E'CloneRow',E'克隆行',E'Clone a row as many times as needed');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (42,E'GetTableNames',E'获取表名',E'Get table names from database connection and send them to the next step');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (43,E'SocketReader',E'Socket 读',E'Socket reader.  A socket client that connects to a server (Socket Writer step).');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (44,E'Normaliser',E'行转列',E'De-normalised information can be normalised using this step type.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (45,E'DataGrid',E'自定义常量数据',E'Enter rows of static data in a grid, usually for testing, reference or demo purpose');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (46,E'DetectEmptyStream',E'检测空流',E'This step will output one empty row if input stream is empty\n(ie when input stream does not contain any row)');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (47,E'LDAPInput',E'LDAP 输入',E'Read data from LDAP host');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (48,E'TableOutput',E'表输出',E'写信息到一个数据库表');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (49,E'XBaseInput',E'XBase输入',E'从一个XBase类型的文件(DBF)读取记录');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (50,E'FieldSplitter',E'拆分字段',E'当你想把一个字段拆分成多个时，使用这个类型.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (51,E'MonetDBBulkLoader',E'MonetDB 批量加载',E'Load data into MonetDB by using their bulk load command in streaming mode.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (52,E'SyslogMessage',E'发送信息至Syslog',E'Send message to Syslog server');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (53,E'ExcelInput',E'Excel输入',E'从一个微软的Excel文件里读取数据. 兼容Excel 95, 97 and 2000.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (54,E'SapInput',E'SAP 输入',E'Read data from SAP ERP, optionally with parameters');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (55,E'InfobrightOutput',E'Infobright 批量加载',E'Load data to an Infobright database table');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (56,E'SynchronizeAfterMerge',E'数据同步',E'This step perform insert/update/delete in one go based on the value of a field. ');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (57,E'CubeOutput',E'Cube输出',E'把数据写入一个cube');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (58,E'Janino',E'利用Janino计算Java表达式',E'Calculate the result of a Java Expression using Janino');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (59,E'BlockUntilStepsFinish',E'阻塞数据直到步骤都完成',E'Block this step until selected steps finish.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (60,E'JsonOutput',E'Json 输出',E'Create Json bloc and output it in a field ou a file.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (61,E'SortRows',E'排序记录',E'基于字段值把记录排序(升序或降序)');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (62,E'SelectValues',E'字段选择',E'选择或移除记录里的字。{0}此外，可以设置字段的元数据: 类型, 长度和精度.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (63,E'TableCompare',E'比较表',E'Compares 2 tables and gives back a list of differences');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (64,E'VectorWiseBulkLoader',E'Ingres VectorWise 批量加载',E'This step interfaces with the Ingres VectorWise Bulk Loader "COPY TABLE" command.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (65,E'PentahoReportingOutput',E'Pentaho 报表输出',E'Executes an existing report (PRPT)');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (66,E'MonetDBAgileMart',E'MonetDB Agile Mart',E'Load data into MonetDB for Agile BI use cases');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (67,E'ChangeFileEncoding',E'改变文件编码',E'Change file encoding and create a new file');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (68,E'SSH',E'运行SSH命令',E'Run SSH commands and returns result.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (69,E'TextFileOutput',E'文本文件输出',E'写记录到一个文本文件.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (70,E'PrioritizeStreams',E'数据流优先级排序',E'Prioritize streams in an order way.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (71,E'Script',E'Script',E'Calculate values by scripting in Ruby, Python, Groovy, JavaScript, ... (JSR-223)');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (72,E'Formula',E'公式',E'使用 Pentaho 的公式库来计算公式');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (73,E'SetVariable',E'设置变量',E'Set environment variables based on a single input row.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (74,E'JoinRows',E'记录关联 (笛卡尔输出)',E'这个步骤的输出是输入流的笛卡尔的结果.{0} 输出结果的记录数是输入流记录之间的乘积.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (75,E'RandomCCNumberGenerator',E'生成随机的信用卡号',E'Generate random valide (luhn check) credit card numbers');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (76,E'ReservoirSampling',E'数据采样',E'[Transform] Samples a fixed number of rows from the incoming stream');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (77,E'DBJoin',E'数据库连接',E'使用数据流里的值作为参数执行一个数据库查询');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (78,E'MailInput',E'邮件信息输入',E'Read POP3/IMAP server and retrieve messages');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (79,E'GetFilesRowsCount',E'获取文件行数',E'Returns rows count for text files.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (80,E'LDIFInput',E'LDIF 输入',E'Read data from LDIF files');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (81,E'FixedInput',E'固定宽度文件输入',E'Fixed file input');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (82,E'DBLookup',E'数据库查询',E'使用字段值在数据库里查询值');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (83,E'WebServiceAvailable',E'检查web服务是否可用',E'Check if a webservice is available');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (84,E'SimpleMapping',E'Simple Mapping (sub-transformation)',E'Run a mapping (sub-transformation), use MappingInput and MappingOutput to specify the fields interface.  This is the simplified version only allowing one input and one output data set.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (85,E'XSDValidator',E'使用 XSD 检验 XML 文件',E'Validate XML source (files or streams) against XML Schema Definition.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (86,E'WebServiceLookup',E'Web 服务查询',E'使用 Web 服务查询信息');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (87,E'ClosureGenerator',E'Closure Generator',E'This step allows you to generates a closure table using parent-child relationships.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (88,E'XMLOutput',E'XML输出',E'写数据到一个XML文件');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (89,E'UnivariateStats',E'单变量统计',E'This step computes some simple stats based on a single input field');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (90,E'HTTP',E'HTTP client',E'Call a web service over HTTP by supplying a base URL by allowing parameters to be set dynamically');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (91,E'Unique',E'去除重复记录',E'去除重复的记录行，保持记录唯一{0}这个仅仅基于一个已经排好序的输入.{1}如果输入没有排序, 仅仅两个连续的记录行被正确处理.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (92,E'SortedMerge',E'排序合并',E'Sorted Merge');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (93,E'PGPDecryptStream',E'PGP Decrypt stream',E'Decrypt data stream with PGP');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (94,E'RowGenerator',E'生成记录',E'产生一些空记录或相等的行.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (95,E'MySQLBulkLoader',E'MySQL 批量加载',E'MySQL bulk loader step, loading data over a named pipe (not available on MS Windows)');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (96,E'SampleRows',E'样本行',E'Filter rows based on the line number.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (97,E'StringCut',E'剪切字符串',E'Strings cut (substring).');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (98,E'GroupBy',E'分组',E'以分组的形式创建聚合.{0}这个仅仅在一个已经排好序的输入有效.{1}如果输入没有排序, 仅仅两个连续的记录行被正确处理.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (99,E'ExecProcess',E'启动一个进程',E'Execute a process and return the result');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (100,E'Constant',E'增加常量',E'给记录增加一到多个常量');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (101,E'StringOperations',E'字符串操作',E'Apply certain operations like trimming, padding and others to string value.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (102,E'StreamLookup',E'流查询',E'从转换中的其它流里查询值.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (103,E'XMLInputStream',E'XML 文件输入 (StAX解析)',E'This step is capable of processing very large and complex XML files very fast.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (104,E'Validator',E'数据检验',E'Validates passing data based on a set of rules');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (105,E'CombinationLookup',E'联合查询/更新',E'更新数据仓库里的一个junk维 {0} 可选的, 科研查询维里的信息.{1}junk维的主键是所有的字段.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (106,E'Delete',E'删除',E'基于关键字删除记录');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (107,E'Sequence',E'增加序列',E'从序列获取下一个值');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (108,E'NullIf',E'设置值为NULL',E'如果一个字段值等于某个固定值，那么把这个字段值设置成null');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (109,E'YamlInput',E'Yaml 输入',E'Read YAML source (file or stream) parse them and convert them to rows and writes these to one or more output. ');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (110,E'TableInput',E'表输入',E'从数据库表里读取信息.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (111,E'RowsToResult',E'复制记录到结果',E'使用这个步骤把记录写到正在执行的任务.{0}信息将会被传递给同一个任务里的下一个条目.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (112,E'JsonInput',E'Json 输入',E'Extract relevant portions out of JSON structures (file or incoming field) and output rows');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (113,E'StepMetastructure',E'流的元数据',E'This is a step to read the metadata of the incoming stream.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (114,E'Append',E'追加流',E'Append 2 streams in an ordered way');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (115,E'RowsFromResult',E'从结果获取记录',E'这个允许你从同一个任务的前一个条目里读取记录.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (116,E'DBProc',E'调用DB存储过程',E'通过调用数据库存储过程获得返回值.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (117,E'Flattener',E'行扁平化',E'Flattens consequetive rows based on the order in which they appear in the输入 stream');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (118,E'SymmetricCryptoTrans',E'对称加密',E'Encrypt or decrypt a string using symmetric encryption.\nAvailable algorithms are DES, AES, TripleDES.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (119,E'PropertyInput',E'配置文件输入',E'Read data (key, value) from properties files.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (120,E'ExecSQL',E'执行SQL脚本',E'执行一个SQL脚本, 另外，可以使用输入的记录作为参数');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (121,E'FilesToResult',E'复制文件到结果',E'This step allows you to set filenames in the result of this transformation.\nSubsequent job entries can then use this information.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (122,E'DimensionLookup',E'维度查询/更新',E'在一个数据仓库里更新一个渐变维 {0} 或者在这个维里查询信息.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (123,E'MetaInject',E'ETL元数据注入',E'This step allows you to inject metadata into an existing transformation prior to execution.  This allows for the creation of dynamic and highly flexible data integration solutions.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (124,E'getXMLData',E'XML 文件输入',E'Get data from XML file by using XPath.\n This step also allows you to parse XML defined in a previous field.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (125,E'FieldsChangeSequence',E'根据字段值来改变序列',E'Add sequence depending of fields value change.\nEach time value of at least one field change, PDI will reset sequence. ');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (126,E'FileLocked',E'检查文件是否已被锁定',E'Check if a file is locked by another process');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (127,E'MondrianInput',E'Mondrian 输入',E'Execute and retrieve data using an MDX query against a Pentaho Analyses OLAP server (Mondrian)');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (128,E'GetSubFolders',E'获取子目录名',E'Read a parent folder and return all subfolders');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (129,E'CsvInput',E'CSV文件输入',E'Simple CSV file input');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (130,E'RssOutput',E'RSS 输出',E'Read RSS stream.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (131,E'LoadFileInput',E'文件内容加载至内存',E'Load file content in memory');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (132,E'RandomValue',E'生成随机数',E'Generate random value');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (133,E'PGPEncryptStream',E'PGP Encrypt stream',E'Encrypt data stream with PGP');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (134,E'LDAPOutput',E'LDAP 输出',E'Perform Insert, upsert, update, add or delete operations on records based on their DN (Distinguished  Name).');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (135,E'TextFileInput',E'文本文件输入',E'从一个文本文件（几种格式）里读取数据{0}这些数据可以被传递到下一个步骤里...');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (136,E'Update',E'更新',E'基于关键字更新记录到数据库');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (137,E'AccessOutput',E'Access 输出',E'Stores records into an MS-Access database table.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (138,E'SFTPPut',E'SFTP Put',E'Upload a file or a stream file to remote host via SFTP');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (139,E'SwitchCase',E'Switch / Case',E'Switch a row to a certain target step based on the case value in a field.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (140,E'AccessInput',E'Access 输入',E'Read data from a Microsoft Access file');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (141,E'StepsMetrics',E'转换步骤信息统计',E'Return metrics for one or several steps');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (142,E'ValueMapper',E'值映射',E'Maps values of a certain field from one value to another');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (143,E'MappingOutput',E'映射输出规范',E'指定一个映射的字段输出');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (144,E'GetVariable',E'获取变量',E'Determine the values of certain (environment or Kettle) variables and put them in field values.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (145,E'DynamicSQLRow',E'执行Dynamic SQL',E'Execute dynamic SQL statement build in a previous field');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (146,E'MultiwayMergeJoin',E'Multiway Merge Join',E'Multiway Merge Join');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (147,E'TypeExitExcelWriterStep',E'Microsoft Excel 输出',E'Writes or appends data to an Excel file');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (148,E'AddXML',E'增加XML列',E'Encode several fields into an XML fragment');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (149,E'ParallelGzipCsvInput',E'GZIP CSV Input',E'Parallel GZIP CSV file input reader');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (150,E'MergeRows',E'合并记录',E'合并两个数据流, 并根据某个关键字排序.  这两个数据流被比较，以标识相等的、变更的、删除的和新建的记录.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (151,E'Rest',E'REST Client',E'Consume RESTfull services.\nREpresentational State Transfer (REST) is a key design idiom that embraces a stateless client-server\narchitecture in which the web services are viewed as resources and can be identified by their URLs');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (152,E'NumberRange',E'数值范围',E'Create ranges based on numeric field');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (153,E'Mapping',E'映射 (子转换)',E'运行一个映射 (子转换), 使用MappingInput和MappingOutput来指定接口的字段');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (154,E'CubeInput',E'Cube 文件输入',E'从一个cube读取记录.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (155,E'ExcelOutput',E'Excel输出',E'Stores records into an Excel (XLS) document with formatting information.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (156,E'AnalyticQuery',E'分析查询',E'Execute analytic queries over a sorted dataset (LEAD/LAG/FIRST/LAST)');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (157,E'Mail',E'发送邮件',E'Send eMail.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (158,E'ProcessFiles',E'处理文件',E'Process one file per row (copy or move or delete).\nThis step only accept filename in input.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (159,E'ScriptValueMod',E'JavaScript代码',E'This is a modified plugin for the Scripting Values with improved interface and performance.\nWritten & donated to open source by Martin Lange, Proconis : http://www.proconis.de');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (160,E'Abort',E'中止',E'Abort a transformation');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (161,E'ColumnExists',E'检查表里的列是否存在',E'Check if a column exists in a table on a specified connection.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (162,E'RegexEval',E'正则表达式',E'Regular expression Evaluation\nThis step uses a regular expression to evaluate a field. It can also extract new fields out of an existing field with capturing groups.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (163,E'XSLT',E'XSL 转换',E'Transform XML stream using XSL (eXtensible Stylesheet Language).');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (164,E'FuzzyMatch',E'模糊匹配',E'Finding approximate matches to a string using matching algorithms.\nRead a field from a main stream and output approximative value from lookup stream.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (165,E'SplitFieldToRows3',E'列拆分为多行',E'Splits a single string field by delimiter and creates a new row for each split term');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (166,E'ReplaceString',E'字符串替换',E'Replace all occurences a word in a string with another word.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (167,E'TableAgileMart',E'Table Agile Mart',E'Load data into a table for Agile BI use cases');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (168,E'MemoryGroupBy',E'在内存中分组',E'Builds aggregates in a group by fashion.\nThis step doesn''t require sorted input.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (169,E'HTTPPOST',E'HTTP Post',E'Call a web service request over HTTP by supplying a base URL by allowing parameters to be set dynamically');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (170,E'WriteToLog',E'写日志',E'Write data to log');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (171,E'IfNull',E'替换NULL值',E'Sets a field value to a constant if it is null.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (172,E'JobExecutor',E'执行作业',E'This step executes a Pentaho Data Integration job, sets parameters and passes rows.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (173,E'FileExists',E'检查文件是否存在',E'Check if a file exists');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (174,E'BlockingStep',E'阻塞数据',E'This step blocks until all incoming rows have been processed.  Subsequent steps only recieve the last input row to this step.');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (175,E'TeraFast',E'Teradata Fastload 批量加载',E'The Teradata Fastload Bulk loader');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (176,E'FilterRows',E'过滤记录',E'使用简单的相等来过滤记录');
+
+INSERT INTO R_STEP_TYPE(ID_STEP_TYPE, CODE, DESCRIPTION, HELPTEXT) VALUES (177,E'ConcatFields',E'Concat Fields',E'Concat fields together into a new field (similar to the Text File Output step)');
+
+CREATE TABLE R_STEP
+(
+  ID_STEP BIGSERIAL
+, ID_TRANSFORMATION INTEGER
+, "name" VARCHAR(255)
+, DESCRIPTION VARCHAR(2000000)
+, ID_STEP_TYPE INTEGER
+, DISTRIBUTE BOOLEAN
+, COPIES SMALLINT
+, GUI_LOCATION_X INTEGER
+, GUI_LOCATION_Y INTEGER
+, GUI_DRAW BOOLEAN
+, COPIES_STRING VARCHAR(255)
+)
+;
+
+CREATE TABLE R_STEP_ATTRIBUTE
+(
+  ID_STEP_ATTRIBUTE BIGSERIAL
+, ID_TRANSFORMATION INTEGER
+, ID_STEP INTEGER
+, NR INTEGER
+, CODE VARCHAR(255)
+, VALUE_NUM BIGINT
+, VALUE_STR VARCHAR(2000000)
+)
+;
+
+CREATE UNIQUE INDEX IDX_RSAT ON R_STEP_ATTRIBUTE(ID_STEP, CODE, NR)
+;
+
+CREATE TABLE R_STEP_DATABASE
+(
+  ID_TRANSFORMATION INTEGER
+, ID_STEP INTEGER
+, ID_DATABASE INTEGER
+)
+;
+
+CREATE INDEX IDX_RSD1 ON R_STEP_DATABASE(ID_TRANSFORMATION)
+;
+
+CREATE INDEX IDX_RSD2 ON R_STEP_DATABASE(ID_DATABASE)
+;
+
+CREATE TABLE R_TRANS_NOTE
+(
+  ID_TRANSFORMATION INTEGER
+, ID_NOTE INTEGER
+)
+;
+
+CREATE TABLE R_LOGLEVEL
+(
+  ID_LOGLEVEL BIGSERIAL
+, CODE VARCHAR(255)
+, DESCRIPTION VARCHAR(255)
+)
+;
+
+INSERT INTO R_LOGLEVEL(ID_LOGLEVEL, CODE, DESCRIPTION) VALUES (1,E'Error',E'错误日志');
+
+INSERT INTO R_LOGLEVEL(ID_LOGLEVEL, CODE, DESCRIPTION) VALUES (2,E'Minimal',E'最小日志');
+
+INSERT INTO R_LOGLEVEL(ID_LOGLEVEL, CODE, DESCRIPTION) VALUES (3,E'Basic',E'基本日志');
+
+INSERT INTO R_LOGLEVEL(ID_LOGLEVEL, CODE, DESCRIPTION) VALUES (4,E'Detailed',E'详细日志');
+
+INSERT INTO R_LOGLEVEL(ID_LOGLEVEL, CODE, DESCRIPTION) VALUES (5,E'Debug',E'调试');
+
+INSERT INTO R_LOGLEVEL(ID_LOGLEVEL, CODE, DESCRIPTION) VALUES (6,E'Rowlevel',E'行级日志(非常详细)');
+
+CREATE TABLE R_LOG
+(
+  ID_LOG BIGSERIAL
+, "name" VARCHAR(255)
+, ID_LOGLEVEL INTEGER
+, LOGTYPE VARCHAR(255)
+, FILENAME VARCHAR(255)
+, FILEEXTENTION VARCHAR(255)
+, ADD_DATE BOOLEAN
+, ADD_TIME BOOLEAN
+, ID_DATABASE_LOG INTEGER
+, TABLE_NAME_LOG VARCHAR(255)
+)
+;
+
+CREATE TABLE R_JOB
+(
+  ID_JOB BIGSERIAL
+, ID_DIRECTORY INTEGER
+, "name" VARCHAR(255)
+, DESCRIPTION VARCHAR(2000000)
+, EXTENDED_DESCRIPTION VARCHAR(2000000)
+, JOB_VERSION VARCHAR(255)
+, JOB_STATUS INTEGER
+, ID_DATABASE_LOG INTEGER
+, TABLE_NAME_LOG VARCHAR(255)
+, CREATED_USER VARCHAR(255)
+, CREATED_DATE TIMESTAMP
+, MODIFIED_USER VARCHAR(255)
+, MODIFIED_DATE TIMESTAMP
+, USE_BATCH_ID BOOLEAN
+, PASS_BATCH_ID BOOLEAN
+, USE_LOGFIELD BOOLEAN
+, SHARED_FILE VARCHAR(255)
+)
+;
+
+CREATE TABLE R_JOBENTRY_DATABASE
+(
+  ID_JOB INTEGER
+, ID_JOBENTRY INTEGER
+, ID_DATABASE INTEGER
+)
+;
+
+CREATE INDEX IDX_RJD1 ON R_JOBENTRY_DATABASE(ID_JOB)
+;
+
+CREATE INDEX IDX_RJD2 ON R_JOBENTRY_DATABASE(ID_DATABASE)
+;
+
+CREATE TABLE R_JOBENTRY_TYPE
+(
+  ID_JOBENTRY_TYPE BIGSERIAL
+, CODE VARCHAR(255)
+, DESCRIPTION VARCHAR(255)
+)
+;
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (1,E'DELAY',E'等待');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (2,E'HTTP',E'HTTP');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (3,E'UNZIP',E'解压缩文件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (4,E'FILES_EXIST',E'检查多个文件是否存在');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (5,E'GET_POP',E'POP 收信');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (6,E'MAIL',E'发送邮件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (7,E'WRITE_TO_FILE',E'写入文件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (8,E'EVAL_FILES_METRICS',E'计算文件大小或个数');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (9,E'FILE_EXISTS',E'检查一个文件是否存在');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (10,E'WAIT_FOR_SQL',E'等待SQL');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (11,E'SFTP',E'SFTP 下载');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (12,E'SET_VARIABLES',E'设置变量');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (13,E'TRANS',E'转换');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (14,E'XML_WELL_FORMED',E'检查 XML 文件格式');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (15,E'SEND_NAGIOS_PASSIVE_CHECK',E'发送Nagios 被动检查');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (16,E'SQL',E'SQL');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (17,E'FTP_DELETE',E'FTP 删除');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (18,E'SUCCESS',E'成功');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (19,E'EVAL_TABLE_CONTENT',E'计算表中的记录数');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (20,E'COPY_FILES',E'复制文件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (21,E'DELETE_FILE',E'删除一个文件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (22,E'MOVE_FILES',E'移动文件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (23,E'FTPS_GET',E'FTPS 下载');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (24,E'MSGBOX_INFO',E'显示消息对话框');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (25,E'CONNECTED_TO_REPOSITORY',E'检查是否连接到资源库');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (26,E'EXPORT_REPOSITORY',E'导出资源库到XML文件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (27,E'PGP_VERIFY_FILES',E'用PGP验证文件签名');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (28,E'TELNET',E'远程登录一台主机');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (29,E'DELETE_RESULT_FILENAMES',E'从结果文件中删除文件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (30,E'ABORT',E'中止作业');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (31,E'CHECK_FILES_LOCKED',E'检查文件是否被锁');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (32,E'DELETE_FOLDERS',E'删除目录');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (33,E'FILE_COMPARE',E'比较文件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (34,E'SIMPLE_EVAL',E'检验字段的值');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (35,E'WRITE_TO_LOG',E'写日志');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (36,E'WAIT_FOR_FILE',E'等待文件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (37,E'TRUNCATE_TABLES',E'清空表');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (38,E'CHECK_DB_CONNECTIONS',E'检查数据库连接');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (39,E'ZIP_FILE',E'Zip 压缩文件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (40,E'COPY_MOVE_RESULT_FILENAMES',E'复制/移动结果文件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (41,E'JOB',E'作业');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (42,E'FTP_PUT',E'FTP 上传');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (43,E'WEBSERVICE_AVAILABLE',E'检查web服务是否可用');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (44,E'TALEND_JOB_EXEC',E'Talend 作业执行');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (45,E'MSSQL_BULK_LOAD',E'SQLServer 批量加载');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (46,E'FOLDER_IS_EMPTY',E'检查目录是否为空');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (47,E'MAIL_VALIDATOR',E'邮件验证');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (48,E'CREATE_FOLDER',E'创建一个目录');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (49,E'SHELL',E'Shell');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (50,E'DELETE_FILES',E'删除多个文件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (51,E'ADD_RESULT_FILENAMES',E'添加文件到结果文件中');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (52,E'XSD_VALIDATOR',E'XSD 验证器');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (53,E'PING',E'Ping 一台主机');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (54,E'MYSQL_BULK_FILE',E'从 Mysql 批量导出到文件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (55,E'FTP',E'FTP 下载');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (56,E'XSLT',E'XSL 转换');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (57,E'SPECIAL',E'特殊作业项');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (58,E'EVAL',E'使用 JavaScript 脚本验证');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (59,E'COLUMNS_EXIST',E'检查列是否存在');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (60,E'DOS_UNIX_CONVERTER',E'DOS和UNIX之间的文本转换');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (61,E'CREATE_FILE',E'创建文件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (62,E'PGP_DECRYPT_FILES',E'用PGP解密文件');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (63,E'SYSLOG',E'用 Syslog 发送信息');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (64,E'FOLDERS_COMPARE',E'比较目录');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (65,E'FTPS_PUT',E'FTPS 上传');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (66,E'SFTPPUT',E'SFTP 上传');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (67,E'DTD_VALIDATOR',E'DTD 验证');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (68,E'SNMP_TRAP',E'发送 SNMP 自陷');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (69,E'TABLE_EXISTS',E'检查表是否存在');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (70,E'MYSQL_BULK_LOAD',E'Mysql 批量加载');
+
+INSERT INTO R_JOBENTRY_TYPE(ID_JOBENTRY_TYPE, CODE, DESCRIPTION) VALUES (71,E'PGP_ENCRYPT_FILES',E'用PGP加密文件');
+
+CREATE TABLE R_JOBENTRY
+(
+  ID_JOBENTRY BIGSERIAL
+, ID_JOB INTEGER
+, ID_JOBENTRY_TYPE INTEGER
+, "name" VARCHAR(255)
+, DESCRIPTION VARCHAR(2000000)
+)
+;
+
+CREATE TABLE R_JOBENTRY_COPY
+(
+  ID_JOBENTRY_COPY BIGSERIAL
+, ID_JOBENTRY INTEGER
+, ID_JOB INTEGER
+, ID_JOBENTRY_TYPE INTEGER
+, NR SMALLINT
+, GUI_LOCATION_X INTEGER
+, GUI_LOCATION_Y INTEGER
+, GUI_DRAW BOOLEAN
+, PARALLEL BOOLEAN
+)
+;
+
+CREATE TABLE R_JOBENTRY_ATTRIBUTE
+(
+  ID_JOBENTRY_ATTRIBUTE BIGSERIAL
+, ID_JOB INTEGER
+, ID_JOBENTRY INTEGER
+, NR INTEGER
+, CODE VARCHAR(255)
+, VALUE_NUM NUMERIC(15, 2)
+, VALUE_STR VARCHAR(2000000)
+)
+;
+
+CREATE UNIQUE INDEX IDX_RJEA ON R_JOBENTRY_ATTRIBUTE(ID_JOBENTRY_ATTRIBUTE, CODE, NR)
+;
+
+CREATE TABLE R_JOB_HOP
+(
+  ID_JOB_HOP BIGSERIAL
+, ID_JOB INTEGER
+, ID_JOBENTRY_COPY_FROM INTEGER
+, ID_JOBENTRY_COPY_TO INTEGER
+, ENABLED BOOLEAN
+, EVALUATION BOOLEAN
+, UNCONDITIONAL BOOLEAN
+)
+;
+
+CREATE TABLE R_JOB_NOTE
+(
+  ID_JOB INTEGER
+, ID_NOTE INTEGER
+)
+;
+
+CREATE TABLE R_TRANS_LOCK
+(
+  ID_TRANS_LOCK BIGSERIAL
+, ID_TRANSFORMATION INTEGER
+, ID_USER INTEGER
+, LOCK_MESSAGE VARCHAR(2000000)
+, LOCK_DATE TIMESTAMP
+)
+;
+
+CREATE TABLE R_JOB_LOCK
+(
+  ID_JOB_LOCK BIGSERIAL
+, ID_JOB INTEGER
+, ID_USER INTEGER
+, LOCK_MESSAGE VARCHAR(2000000)
+, LOCK_DATE TIMESTAMP
+)
+;
+
+CREATE TABLE R_NAMESPACE
+(
+  ID_NAMESPACE BIGSERIAL
+, "name" VARCHAR(9999998)
+)
+;
+
+CREATE TABLE R_ELEMENT_TYPE
+(
+  ID_ELEMENT_TYPE BIGSERIAL
+, ID_NAMESPACE INTEGER
+, "name" VARCHAR(9999998)
+, DESCRIPTION VARCHAR(2000000)
+)
+;
+
+CREATE TABLE R_ELEMENT
+(
+  ID_ELEMENT BIGSERIAL
+, ID_ELEMENT_TYPE INTEGER
+, "name" VARCHAR(9999998)
+)
+;
+
+CREATE TABLE R_ELEMENT_ATTRIBUTE
+(
+  ID_ELEMENT_ATTRIBUTE BIGSERIAL
+, ID_ELEMENT INTEGER
+, ID_ELEMENT_ATTRIBUTE_PARENT INTEGER
+, ATTR_KEY VARCHAR(255)
+, ATTR_VALUE VARCHAR(2000000)
+)
+;
+
+CREATE TABLE R_USER
+(
+  ID_USER BIGSERIAL
+, "login" VARCHAR(255)
+, "password" VARCHAR(255)
+, "name" VARCHAR(255)
+, DESCRIPTION VARCHAR(255)
+, ENABLED BOOLEAN
+)
+;
+
+INSERT INTO R_USER(ID_USER, "login", "password", "name", DESCRIPTION, ENABLED) VALUES (1,E'admin',E'2be98afc86aa7f2e4cb79ce71da9fa6d4',E'Administrator',E'User manager',E'Y');
+
+INSERT INTO R_USER(ID_USER, "login", "password", "name", DESCRIPTION, ENABLED) VALUES (2,E'guest',E'2be98afc86aa7f2e4cb79ce77cb97bcce',E'Guest account',E'Read-only guest account',E'Y');
+
