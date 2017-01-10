@@ -3,8 +3,8 @@
   type="WEB"
   name="webx"
   id="myeclipse.1471932752473"
-  context-root="/web"
-  j2ee-spec="6.0"
+  context-root="/webx"
+  j2ee-spec="1.7"
   archive="webx.war">
   <attributes>
     <attribute name="webrootdir" value="src/main/webapp" />
